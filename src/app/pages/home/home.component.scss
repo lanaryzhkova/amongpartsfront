@@ -1,17 +1,21 @@
-.container{
-  width: 1100px;
+.container {
+  max-width: 1116px;
+  padding: 0 16px;
   margin: 0 auto;
   justify-content: stretch;
-  .card-row{
+
+  .card-row {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
-  p{
+
+  p {
     font-size: 30px;
     font-weight: 550;
     letter-spacing: 0.5px;
-    margin: 30px 0 25px 0 ;
+    margin: 30px 0 25px 0;
   }
 }
 

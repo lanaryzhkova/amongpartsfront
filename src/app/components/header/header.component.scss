@@ -1,82 +1,80 @@
-.wrapper{
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
+.wrapper {
+  background-color: #CFE2FF;
 }
 
-.header{
-  height: 60px;
-  background-color: #CFE2FF;
+.header {
+  min-height: 60px;
+  max-width: 1116px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
 
-    .header-left-part{
+  .header-left-part {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    button {
       display: flex;
-      flex-direction: row;
-      margin: auto 20px;
-      button{
-        display: flex;
-        flex-direction: row;
-        height: 30px;
-        margin: 10px 16px;
-        padding: 6px 12px;
-        background-color: #0D6EFD;
-        border: 1px;
-        border-radius: 5px;
-        font-weight: bold;
-        color: white;
-        .svg-list{
-          height: 20px;
-          width: 20px;
-        }
-        p{
-          margin: auto;
-        }
+      align-items: center;
+      height: 32px;
+      background-color: #0D6EFD;
+      border: 1px;
+      border-radius: 5px;
+      font-size: 16px;
+      color: white;
+
+      .svg-list {
+        height: 24px;
+        width: 24px;
       }
     }
+  }
 
-    .header-right-part{
+  .header-right-part {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    form {
       display: flex;
-      flex-direction: row;
-      margin: auto 20px;
-      form{
-        margin: auto;
-      }
-        input{
-          height: 30px;
-          width: 150px;
-          font-size: 15px;
-          font-weight: 500;
-          font-style: normal;
-          line-height: 24px;
-          padding: 0 12px;
-          border: 1px solid lightgray;
-          border-radius: 5px;
-        }
-
-        button{
-          height: 30px;
-          margin: auto 16px;
-          padding: 0px 12px;
-          background-color: #CFE2FF;
-          border: 1px solid #0D6EFD;
-          border-radius: 5px;
-          font-weight: bold;
-          color: #0D6EFD;
-        }
-
-      .svg-profile{
-        height: 40px;
-        width: 40px;
-        margin: -4px 24px 0 12px;
-      }
+      align-items: center;
+      gap: 16px;
     }
-    .logo{
-      margin: 0 auto;
-      font-family: "Daruma Drop One";
+
+    input {
+      height: 32px;
+      width: 150px;
+      font-size: 15px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 24px;
+      padding: 0 12px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+    }
+
+    button {
+      height: 32px;
+      padding: 0 12px;
+      background-color: #CFE2FF;
+      border: 1px solid #0D6EFD;
+      border-radius: 5px;
+      font-weight: bold;
       color: #0D6EFD;
-      font-size: 30px;
     }
+
+    .svg-profile {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .logo {
+    font-family: "Daruma Drop One";
+    color: #0D6EFD;
+    font-size: 30px;
+  }
 }

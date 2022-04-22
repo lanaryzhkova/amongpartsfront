@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-action-card',
@@ -6,8 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./action-card.component.scss']
 })
 export class ActionCardComponent {
-@Input() title?: string;
-@Input() body?: string;
-@Input() src?: string;
+  @Input() title?: string;
+  @Input() body?: string;
+  @Input() src?: string;
 
 }
