@@ -1,0 +1,30 @@
+.article{
+  width: auto;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+    .article-title{
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0;
+    }
+  .article-body{
+    font-size: 16px;
+    margin: 0;
+  }
+  .article-button{
+    width: fit-content;
+    height: 30px;
+    padding: 0 12px;
+    background-color: #0D6EFD;
+    border: 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+  }
+}
+

@@ -1,0 +1,38 @@
+.card{
+  position: relative;
+  height: auto;
+  width: 350px;
+  margin: auto;
+  background-color: #CFE2FF;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+    img{
+      width: 160px;
+      height: 200px;
+      grid-row: 1/4;
+    }
+    .card-title{
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 8px;
+      grid-row: 1/2;
+    }
+    .card-body{
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      font-weight: 500;
+      font-size: 18px;
+      color: black;
+      opacity: .8;
+      padding: 10px;
+      grid-column: 2/4;
+      grid-row: 2/4;
+    }
+}
