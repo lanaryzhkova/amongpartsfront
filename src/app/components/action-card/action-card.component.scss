@@ -9,11 +9,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  cursor: pointer;
+
     img{
       width: 160px;
       height: 200px;
       grid-row: 1/4;
+      border-radius: 5px 0 0 5px;
     }
+
     .card-title{
       width: fit-content;
       height: fit-content;
@@ -23,15 +27,16 @@
       padding: 8px;
       grid-row: 1/2;
     }
+
     .card-body{
       width: fit-content;
       height: fit-content;
-      margin: 0;
+      margin: auto 0;
       font-weight: 500;
       font-size: 18px;
       color: black;
-      opacity: .8;
-      padding: 10px;
+      opacity: .9;
+      padding: 8px;
       grid-column: 2/4;
       grid-row: 2/4;
     }

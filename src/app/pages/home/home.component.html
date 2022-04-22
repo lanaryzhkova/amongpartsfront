@@ -1,25 +1,20 @@
 <div class="container">
   <p>Используйте наши инструменты</p>
   <div class="card-row">
-    <ng-container *ngFor="let card of cards">
+    <ng-container *ngFor="let card of action_cards">
       <app-action-card [title]="card.title" [body]="card.body" [src]="card.src"></app-action-card>
     </ng-container>
   </div>
   <p>Важные компоненты для сборки компьютера</p>
   <div class="card-row">
-    <app-home-part-card title="Материнские платы"
-                        body="Some quick example text to build on the card title and make up the bulk of the card's content."
-                        src="/assets/motherboard.png"></app-home-part-card>
-    <app-home-part-card title="Центральные процессоры"
-                        body="Some quick example text to build on the card title and make up the bulk of the card's content."
-                        src="/assets/cpu.png"></app-home-part-card>
-    <app-home-part-card title="Оперативная память"
-                        body="Some quick example text to build on the card title and make up the bulk of the card's content."
-                        src="/assets/memories.png"></app-home-part-card>
+    <ng-container *ngFor="let card of part_cards">
+    <app-home-part-card [title]="card.title" [src]="card.src" ></app-home-part-card>
+    </ng-container>
   </div>
   <p>Для чего нужна материнская плата и с чего начать сборку ПК</p>
-  <app-article-card title="Гайд: Сборка компьютера - какие компоненты необходимы, с чего начать, лайфхаки"
-                    body="Данная статья разложит по полочкам ваши знания о компонентах и их подборе для компьютера мечты!"></app-article-card>
+  <ng-container *ngFor="let article of articles">
+  <app-article-card [title]="article.title" [body]="article.body"></app-article-card>
+  </ng-container>
 </div>
 
 

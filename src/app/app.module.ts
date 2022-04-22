@@ -9,6 +9,7 @@ import { ActionCardComponent } from './components/action-card/action-card.compon
 import { HomePartCardComponent } from './components/home-part-card/home-part-card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { NotfoundcomponentComponent } from './pages/notfoundcomponent/notfoundcomponent.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
     HomePartCardComponent,
     HomeComponent,
     ArticleCardComponent,
+    NotfoundcomponentComponent,
 
   ],
   imports: [

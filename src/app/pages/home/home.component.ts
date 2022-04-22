@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  cards = [
+  action_cards = [
     {
       title: "Собрать компьютер",
       body: "Соберите конфигурацию компьютера на свой вкус!",
@@ -21,6 +21,28 @@ export class HomeComponent implements OnInit {
       title: "Сравнить компоненты",
       body: "Выберите компоненты одной категории и узнайте, какой из них лучше!",
       src: "/assets/action3.png"
+    },
+  ]
+
+  part_cards = [
+    {
+      title: "Материнские платы",
+      src:"/assets/motherboard.png"
+    },
+    {
+      title: "Центральные процессоры",
+      src:"/assets/cpu.png"
+    },
+    {
+      title: "Оперативная память",
+      src:"/assets/memories.png"
+    },
+  ]
+
+  articles = [
+    {
+      title:"Гайд: Сборка компьютера - какие компоненты необходимы, с чего начать, лайфхаки",
+      body:"Данная статья разложит по полочкам ваши знания о компонентах и их подборе для компьютера мечты!"
     },
   ]
 
