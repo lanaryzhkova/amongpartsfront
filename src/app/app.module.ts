@@ -1,32 +1,28 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-
-import { ActionCardComponent } from './components/action-card/action-card.component';
-import { HomePartCardComponent } from './components/home-part-card/home-part-card.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ArticleCardComponent } from './components/article-card/article-card.component';
-import { NotfoundcomponentComponent } from './pages/notfoundcomponent/notfoundcomponent.component';
+import { NgModule }                from '@angular/core';
+import { BrowserModule }           from '@angular/platform-browser';
+import { AppRoutingModule }        from './app-routing.module';
+import { AppComponent }            from './app.component';
+import { NotFoundModule }          from "./pages/not-found/not-found.module";
+import { HomeModule }              from "./pages/home/home.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule }        from "@angular/common/http";
+import { HeaderModule }            from "src/app/components/header/header.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ActionCardComponent,
-    HomePartCardComponent,
-    HomeComponent,
-    ArticleCardComponent,
-    NotfoundcomponentComponent,
-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NotFoundModule,
+    HeaderModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

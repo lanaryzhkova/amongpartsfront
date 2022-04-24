@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
+// import { MotherboardService }       from "src/app/services/motherboard.service";
 
 @Component({
   selector: 'app-article-card',
@@ -8,4 +9,20 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ArticleCardComponent {
   @Input() title?: string;
   @Input() body?: string;
+  motherboards?: any[];
+
+  // constructor(private motherboardService: MotherboardService) {
+  // }
+
+//   getMotherboard() {
+//     this.motherboardService.getMotherboard(0, 10).subscribe(value => {
+//       this.motherboards = value;
+//     })
+//   }
+
+// <div *ngFor="let item of motherboards; let i = index" >
+// {{i + 1}}. price: {{item.price | json}}, name: {{item.name | json}}
+// </div>
+
+
 }

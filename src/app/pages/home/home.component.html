@@ -8,14 +8,11 @@
   <p>Важные компоненты для сборки компьютера</p>
   <div class="card-row">
     <ng-container *ngFor="let card of part_cards">
-    <app-home-part-card [title]="card.title" [src]="card.src" ></app-home-part-card>
+      <app-home-part-card [title]="card.title" [src]="card.src"></app-home-part-card>
     </ng-container>
   </div>
   <p>Для чего нужна материнская плата и с чего начать сборку ПК</p>
   <ng-container *ngFor="let article of articles">
-  <app-article-card [title]="article.title" [body]="article.body"></app-article-card>
+    <app-article-card [title]="article.title" [body]="article.body"></app-article-card>
   </ng-container>
 </div>
-
-
-

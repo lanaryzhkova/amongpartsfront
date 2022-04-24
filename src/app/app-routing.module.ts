@@ -1,12 +1,22 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent }        from "src/app/pages/home/home.component";
-import {NotfoundcomponentComponent} from "./pages/notfoundcomponent/notfoundcomponent.component";
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home/home.module').then(
+        (m) => m.HomeModule,
+      ),
+  },
   {path: '', redirectTo:'/home', pathMatch:'full'},
-  {path: '**', component: NotfoundcomponentComponent}
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./pages/not-found/not-found.module').then(
+        (m) => m.NotFoundModule,
+      ),
+  },
 ];
 
 @NgModule({
@@ -15,3 +25,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
+
