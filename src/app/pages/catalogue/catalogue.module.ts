@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {RouterModule} from "@angular/router";
-import {CatalogueComponent} from "./catalogue.component";
-import {ListboxModule} from "primeng/listbox";
-import {FormsModule} from "@angular/forms";
-import {PartCardModule} from "../../components/part-card/part-card.module";
+import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
+import { RouterModule }             from "@angular/router";
+import { CatalogueComponent }       from "./catalogue.component";
+import { ListboxModule }            from "primeng/listbox";
+import { FormsModule }              from "@angular/forms";
+import { PartCardModule }           from "../../components/part-card/part-card.module";
+import { PaginatorModule }          from "primeng/paginator";
+import { PartDetailedDialogModule } from "src/app/components/part-detailed-dialog/part-detailed-dialog.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import {PartCardModule} from "../../components/part-card/part-card.module";
     ]),
     ListboxModule,
     FormsModule,
-    PartCardModule
+    PartCardModule,
+    PaginatorModule,
+    PartDetailedDialogModule
   ]
 })
-export class CatalogueModule { }
+export class CatalogueModule {
+}

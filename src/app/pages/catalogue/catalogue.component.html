@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="categories">
-    <p-listbox [options]="groupedCategories" [group]="true" [(ngModel)]="selectedCountries" [metaKeySelection]="false"
+<section class="container">
+  <nav class="categories">
+    <p-listbox [options]="groupedCategories" [group]="true" [(ngModel)]="selectedCategory" (ngModelChange)="getProduct()" [metaKeySelection]="false"
                [listStyle]="{'max-height':'600px'}" [style]="{'width':'15rem'}">
       <ng-template let-group pTemplate="group">
         <div class="p-d-flex p-ai-center">
@@ -8,8 +8,19 @@
         </div>
       </ng-template>
     </p-listbox>
+  </nav>
+  <div>
+    <div class="parts">
+      <ng-container *ngFor="let item of currentProducts">
+        <app-part-card
+          [name]="item?.name"
+          [images]="item?.images"
+          [description]="item?.description"
+          (ModalDialog)="showModalDialog()"
+        ></app-part-card>
+      </ng-container>
+    </div>
+    <p-paginator [rows]="12" [totalRecords]="totalRecords" (onPageChange)="nextStep($event)"></p-paginator>
   </div>
-  <div class="parts">
-  <app-part-card></app-part-card>
-  </div>
-</div>
+</section>
+<app-part-detailed-dialog [displayModal]="openDialog" (closingModal)="closeDialog()"></app-part-detailed-dialog>

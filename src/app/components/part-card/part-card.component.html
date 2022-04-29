@@ -1,16 +1,17 @@
 <div class="cards">
-<p-card *ngFor="let item of ssd; let i = index" [style]="{width: '230px', height:'350px', boxShadow:'0 0 5px rgba(122,122,122,0.5)'}" styleClass="p-card-shadow">
-  <ng-template pTemplate="header">
-    <div class="name-image">
-    <p>{{item.name}}</p>
-    <img class="part-image" alt="Card" src={{item.images[0]}}>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <p class="description">{{item.description}}</p>
-    <p-button styleClass="p-button-sm" [style]="{}" label="Подробнее"></p-button>
-  </ng-template>
-</p-card>
+  <p-card [style]="{width: '230px', height:'350px', boxShadow:'0 0 5px rgba(122,122,122,0.5)'}"
+          styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+      <div class="name-image">
+        <p>{{name}}</p>
+        <img class="part-image" alt="Карточка товара {{name}}" [src]="images[0]">
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <p class="description">{{description}}</p>
+      <p-button (click)="showModalDialog()" styleClass="p-button-sm" label="Подробнее"></p-button>
+    </ng-template>
+  </p-card>
 </div>
 
 

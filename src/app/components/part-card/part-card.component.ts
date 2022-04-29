@@ -1,5 +1,4 @@
-import { Component} from '@angular/core';
-import {SsdService} from "../../services/ssd.service";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-part-card',
@@ -7,15 +6,16 @@ import {SsdService} from "../../services/ssd.service";
   styleUrls: ['./part-card.component.scss']
 })
 export class PartCardComponent {
+  @Input() name?: string;
+  @Input() images?: any | null = 'https://imgholder.ru/323x300/3d4d65/eceff4';
+  @Input() description?: string | null = 'Нет описания';
+  @Output() ModalDialog = new EventEmitter;
 
-  ssd?: any[];
+  constructor() {
 
-  constructor(private ssdService: SsdService) {
-   this.getSsd()
   }
-  getSsd() {
-    this.ssdService.getSsd(0, 12).subscribe(value => {
-      this.ssd = value;
-    })
+
+  showModalDialog() {
+    this.ModalDialog.emit()
   }
 }
