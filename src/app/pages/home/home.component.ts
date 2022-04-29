@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem }          from "primeng/api";
 
 @Component({
   selector: 'app-home',
@@ -47,22 +46,10 @@ export class HomeComponent implements OnInit {
     },
   ]
 
-  items!: MenuItem[];
-
   constructor() {}
 
   ngOnInit() {
-    this.items = [
-      {label: 'Update', icon: 'pi pi-refresh', command: () => {
 
-        }},
-      {label: 'Delete', icon: 'pi pi-times', command: () => {
-
-        }},
-      {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
-      {separator:true},
-      {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
-    ];
   }
 
 }

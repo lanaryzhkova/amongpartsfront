@@ -1,0 +1,27 @@
+.cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+
+  .name-image{
+    height: 120px;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 10px;
+    margin: 0 15px 0 15px;
+
+    .part-image{
+      width: 150px;
+      height: 100px;
+    }
+  }
+  .description{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    height: 120px;
+  }
+}
+

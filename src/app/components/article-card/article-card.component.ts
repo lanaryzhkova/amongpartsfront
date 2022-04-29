@@ -11,6 +11,7 @@ export class ArticleCardComponent {
   @Input() body?: string;
   motherboards?: any[];
 
+
   // constructor(private motherboardService: MotherboardService) {
   // }
 

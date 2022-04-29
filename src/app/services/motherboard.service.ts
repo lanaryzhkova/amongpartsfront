@@ -11,7 +11,6 @@ export class MotherboardService {
     private http: HttpClient
   ) {
   }
-
   getMotherboard(skip?: number, limit?: number): Observable<any> {
     let params: HttpParams = new HttpParams();
     if (limit) {

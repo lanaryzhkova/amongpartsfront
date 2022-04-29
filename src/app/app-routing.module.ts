@@ -11,6 +11,13 @@ const routes: Routes = [
   },
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {
+    path: 'parts',
+    loadChildren: () =>
+      import('./pages/catalogue/catalogue.module').then(
+        (m) => m.CatalogueModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

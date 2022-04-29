@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="categories">
+    <p-listbox [options]="groupedCategories" [group]="true" [(ngModel)]="selectedCountries" [metaKeySelection]="false"
+               [listStyle]="{'max-height':'600px'}" [style]="{'width':'15rem'}">
+      <ng-template let-group pTemplate="group">
+        <div class="p-d-flex p-ai-center">
+          <span>{{group.label}}</span>
+        </div>
+      </ng-template>
+    </p-listbox>
+  </div>
+  <div class="parts">
+  <app-part-card></app-part-card>
+  </div>
+</div>

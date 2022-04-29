@@ -1,46 +1,15 @@
 <section class="wrapper">
   <div class="header">
     <div class="header-left-part">
-      <p class="logo">AmongParts</p>
-      <button type="button">
-        <img class="svg-list" src="/assets/list.svg" alt="каталог товаров">
-        каталог товаров
-      </button>
-      <p-splitButton styleClass="p-button-info p-button-sm"  label="Save" icon="pi pi-bars" [model]="nestedItems"></p-splitButton>
+      <p class="logo" routerLink="home">AmongParts</p>
+      <p-splitButton styleClass="p-button-info p-button-m" label="каталог компонентов" [routerLink]="['/parts']"  icon="pi pi-bars" [model]="nestedItems"></p-splitButton>
     </div>
     <div class="header-right-part">
       <form>
         <input type="text" placeholder="поиск">
-        <button type="button">найти</button>
+        <p-button styleClass="p-button-outlined p-button-m" label="найти"></p-button>
       </form>
       <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
     </div>
   </div>
 </section>
-<div class="parts-list">
-  <div class="col">
-    <p>Основные</p>
-    <ul>
-      <li>материнская плата</li>
-      <li>центральный процессор</li>
-      <li>оперативная память</li>
-      <li>видеокарта</li>
-      <li>звуковая карта</li>
-      <li>блок питания</li>
-    </ul>
-  </div>
-  <div class="col">
-    <p>Охлаждение</p>
-      <ul>
-        <li>для процессора</li>
-        <li>для корпуса</li>
-      </ul>
-    </div>
-  <div class="col">
-    <p>Дополнительно</p>
-    <ul>
-      <li>термопаста</li>
-    </ul>
-  </div>
-</div>
-

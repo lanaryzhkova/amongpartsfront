@@ -7,6 +7,8 @@ import { HomeModule }              from "./pages/home/home.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule }        from "@angular/common/http";
 import { HeaderModule }            from "src/app/components/header/header.module";
+import { CatalogueModule }         from "./pages/catalogue/catalogue.module";
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { HeaderModule }            from "src/app/components/header/header.module
     AppRoutingModule,
     NotFoundModule,
     HeaderModule,
-    HomeModule
+    HomeModule,
+    CatalogueModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
