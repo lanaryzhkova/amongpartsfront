@@ -1,0 +1,18 @@
+<section class="catalog">
+  <ng-container *ngIf="currentProducts; else notFound">
+    <div class="catalog__list">
+      <ng-container *ngFor="let item of currentProducts">
+        <app-part-card
+          [name]="item?.name"
+          [images]="item?.images"
+          [description]="item?.description"
+        ></app-part-card>
+      </ng-container>
+    </div>
+    <p-paginator [first]="first" [rows]="1" [totalRecords]="100" (onPageChange)="paginate($event)"></p-paginator>
+  </ng-container>
+</section>
+
+<ng-template #notFound>
+  <p>Товара из выборанной категории нет.</p>
+</ng-template>

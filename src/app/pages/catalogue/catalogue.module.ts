@@ -7,6 +7,7 @@ import { FormsModule }              from "@angular/forms";
 import { PartCardModule }           from "../../components/part-card/part-card.module";
 import { PaginatorModule }          from "primeng/paginator";
 import { PartDetailedDialogModule } from "src/app/components/part-detailed-dialog/part-detailed-dialog.module";
+import { CatalogListModule }        from "src/app/components/catalog-list/catalog-list.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PartDetailedDialogModule } from "src/app/components/part-detailed-dialo
     FormsModule,
     PartCardModule,
     PaginatorModule,
-    PartDetailedDialogModule
+    PartDetailedDialogModule,
+    CatalogListModule,
   ]
 })
 export class CatalogueModule {

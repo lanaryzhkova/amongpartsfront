@@ -1,6 +1,6 @@
 <section class="container">
   <nav class="categories">
-    <p-listbox [options]="groupedCategories" [group]="true" [(ngModel)]="selectedCategory" (ngModelChange)="getProduct()" [metaKeySelection]="false"
+    <p-listbox [options]="groupedCategories" [group]="true" (onClick)="linkProduct($event)"
                [listStyle]="{'max-height':'600px'}" [style]="{'width':'15rem'}">
       <ng-template let-group pTemplate="group">
         <div class="p-d-flex p-ai-center">
@@ -10,17 +10,13 @@
     </p-listbox>
   </nav>
   <div>
-    <div class="parts">
-      <ng-container *ngFor="let item of currentProducts">
-        <app-part-card
-          [name]="item?.name"
-          [images]="item?.images"
-          [description]="item?.description"
-          (ModalDialog)="showModalDialog()"
-        ></app-part-card>
-      </ng-container>
-    </div>
-    <p-paginator [rows]="12" [totalRecords]="totalRecords" (onPageChange)="nextStep($event)"></p-paginator>
+    <ng-container *ngIf="!warning; else tmplwarning">
+      <router-outlet></router-outlet>
+    </ng-container>
+
   </div>
 </section>
-<app-part-detailed-dialog [displayModal]="openDialog" (closingModal)="closeDialog()"></app-part-detailed-dialog>
+
+<ng-template #tmplwarning>
+  Выберите одну из категорий!
+</ng-template>

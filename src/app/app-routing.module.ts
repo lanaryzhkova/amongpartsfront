@@ -1,5 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CatalogueComponent }   from "src/app/pages/catalogue/catalogue.component";
+import { CatalogListComponent } from "src/app/components/catalog-list/catalog-list.component";
 
 const routes: Routes = [
   {
@@ -11,10 +13,13 @@ const routes: Routes = [
   },
   {
     path: 'parts',
-    loadChildren: () =>
-      import('./pages/catalogue/catalogue.module').then(
-        (m) => m.CatalogueModule,
-      ),
+    component: CatalogueComponent,
+    children: [
+      {
+        path: ':id',
+        component: CatalogListComponent
+      }
+    ]
   },
   {
     path: '**',

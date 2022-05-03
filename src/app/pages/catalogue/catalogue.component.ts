@@ -1,6 +1,6 @@
-import { Component, OnInit }  from '@angular/core';
-import { SelectItemGroup }    from "primeng/api";
-import { MotherboardService } from "src/app/services/motherboard.service";
+import { Component, OnInit } from '@angular/core';
+import { SelectItemGroup }   from "primeng/api";
+import { Router }            from "@angular/router";
 
 @Component({
   selector: 'app-catalogue',
@@ -9,28 +9,15 @@ import { MotherboardService } from "src/app/services/motherboard.service";
 })
 
 export class CatalogueComponent implements OnInit {
-  skip = 0;
-  limit = 12;
   groupedCategories!: SelectItemGroup[];
   openDialog: boolean = false;
+  warning: boolean = true;
 
-  // TODO: МЕНЯТЬ В ЗАВИСИМОСТИ ОТ ПЕРВОГО ГЕТ ЗАПРОСА В NgOnInit
-  selectedCategory?: any = 'ssd';
-
-  currentProducts?: any;
-  currentProduct?: any;
-  totalRecords: any = 0;
-
-
-
-  constructor(private getProducts: MotherboardService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-    this.getProducts.getSsd(0, 12).subscribe((val) => {
-      this.currentProducts = val.data
-      this.totalRecords = val.amount
-    })
+    this.router.navigate([`parts/ssd`])
     this.groupedCategories = [
       {
         label: 'Основные',
@@ -41,7 +28,7 @@ export class CatalogueComponent implements OnInit {
           {label: 'SSD-накопители', value: 'ssd'},
           {label: 'HDD-накопители', value: 'hdd'},
           {label: 'Видеокарты', value: 'gpu'},
-          {label: 'Звуковые карты', value: 'Звуковые карты'},
+          {label: 'Звуковые карты', value: 'audio'},
           {label: 'Блоки питания', value: 'psu'},
         ]
       },
@@ -62,57 +49,8 @@ export class CatalogueComponent implements OnInit {
     ]
   }
 
-  getProduct(): void {
-    console.log(this.skip)
-    this.currentProduct = this.selectedCategory;
-    switch (this.selectedCategory) {
-      case 'motherboard':
-        this.getProducts.getMotherboard(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'ssd':
-        this.getProducts.getSsd(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'ram':
-      this.getProducts.getRam(this.skip, this.limit).subscribe((val) => {
-        this.currentProducts = val.data
-        this.totalRecords = val.amount
-      })
-      break;
-      case 'gpu':
-        this.getProducts.getGpu(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'psu':
-        this.getProducts.getPsu (this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-    }
+  linkProduct(product: any) {
+    this.warning = false;
+    this.router.navigate([`parts/${product.value}`])
   }
-
-  nextStep(evt: any,) {
-    this.skip = evt.first
-    this.skip = this.skip * this.limit;
-    this.currentProducts = null;
-    console.log(this.skip)
-    this.getProduct();
-  }
-
-  showModalDialog() {
-    this.openDialog = true;
-  }
-
-  closeDialog() {
-    this.openDialog = false;
-  }
-
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-// import { MotherboardService }       from "src/app/services/motherboard.service";
+// import { GetProductService }       from "src/app/services/motherboard.service";
 
 @Component({
   selector: 'app-article-card',
@@ -12,7 +12,7 @@ export class ArticleCardComponent {
   motherboards?: any[];
 
 
-  // constructor(private motherboardService: MotherboardService) {
+  // constructor(private motherboardService: GetProductService) {
   // }
 
 //   getMotherboard() {
