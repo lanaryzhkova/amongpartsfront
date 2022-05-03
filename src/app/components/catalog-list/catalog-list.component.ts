@@ -9,18 +9,22 @@ import { ActivatedRoute }    from "@angular/router";
 })
 export class CatalogListComponent implements OnInit {
   currentProducts: any;
+  product: any;
   skip = 0;
   limit = 12;
   totalRecords: any = 0;
   private selectedId!: string | null;
   first: number = 0;
+  displayModal = false;
 
-  constructor(private getProducts: GetProductService, private route: ActivatedRoute) { }
+  constructor(private getProducts: GetProductService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.selectedId = params.get('id');
       this.refresh()
+      this.skip = 0;
       this.getProduct()
     });
   }
@@ -62,9 +66,21 @@ export class CatalogListComponent implements OnInit {
 
   paginate(evt: any) {
     this.first = evt.first;
+    this.skip = this.limit * this.first
+    this.getProduct();
   }
 
   refresh() {
     this.first = 0;
+  }
+
+  openDialog(evt: string) {
+    this.displayModal = true
+
+    this.product = this.currentProducts.filter((obj: any) => {
+      return obj.name === evt
+    })
+
+    console.log(this.product[0])
   }
 }

@@ -5,6 +5,7 @@ import { PaginatorModule }      from "primeng/paginator";
 import { PartCardModule }       from "src/app/components/part-card/part-card.module";
 import { RouterModule }         from "@angular/router";
 import { CatalogueComponent }   from "src/app/pages/catalogue/catalogue.component";
+import { DialogModule }         from "primeng/dialog";
 
 
 
@@ -15,16 +16,17 @@ import { CatalogueComponent }   from "src/app/pages/catalogue/catalogue.componen
   exports: [
     CatalogListComponent
   ],
-  imports: [
-    CommonModule,
-    PaginatorModule,
-    PartCardModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: CatalogueComponent,
-      },
-    ]),
-  ]
+    imports: [
+        CommonModule,
+        PaginatorModule,
+        PartCardModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: CatalogueComponent,
+            },
+        ]),
+        DialogModule,
+    ]
 })
 export class CatalogListModule { }

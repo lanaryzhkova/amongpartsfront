@@ -6,6 +6,7 @@
           [name]="item?.name"
           [images]="item?.images"
           [description]="item?.description"
+          (ModalDialog)="openDialog($event)"
         ></app-part-card>
       </ng-container>
     </div>
@@ -16,3 +17,17 @@
 <ng-template #notFound>
   <p>Товара из выборанной категории нет.</p>
 </ng-template>
+
+<ng-container *ngIf="product">
+  <p-dialog [header]="product[0].name" [(visible)]="displayModal" [modal]="true" [style]="{width: '80vw'}" >
+    <div class="modal">
+      <img [src]="product[0].images[0]" alt="Картника товара" width="100%">
+      <ol class="modal__list">
+        <ng-container *ngFor="let item of product[0].specifications">
+          <li><b>{{item.key}}</b>: {{item.value}}</li>
+        </ng-container>
+      </ol>
+    </div>
+  </p-dialog>
+</ng-container>
+

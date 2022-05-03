@@ -11,3 +11,13 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal__list {
+  width: max-content;
+  margin: 0;
+}

@@ -17,7 +17,7 @@ const routes: Routes = [
     children: [
       {
         path: ':id',
-        component: CatalogListComponent
+        component: CatalogListComponent,
       }
     ]
   },

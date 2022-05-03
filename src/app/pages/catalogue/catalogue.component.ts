@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItemGroup }   from "primeng/api";
-import { Router }            from "@angular/router";
+import { SelectItemGroup }                                                           from "primeng/api";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-catalogue',
@@ -17,7 +17,6 @@ export class CatalogueComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate([`parts/ssd`])
     this.groupedCategories = [
       {
         label: 'Основные',
