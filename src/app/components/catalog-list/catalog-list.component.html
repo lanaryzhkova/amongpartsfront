@@ -10,7 +10,7 @@
         ></app-part-card>
       </ng-container>
     </div>
-    <p-paginator [first]="first" [rows]="1" [totalRecords]="100" (onPageChange)="paginate($event)"></p-paginator>
+    <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalRecords" (onPageChange)="paginate($event)"></p-paginator>
   </ng-container>
 </section>
 
