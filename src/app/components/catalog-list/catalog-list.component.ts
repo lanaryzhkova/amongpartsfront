@@ -61,12 +61,60 @@ export class CatalogListComponent implements OnInit {
           this.totalRecords = val.amount
         })
         break;
+      case 'cpu':
+        this.getProducts.getCpu(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'hdd':
+        this.getProducts.getHdd(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'optical':
+        this.getProducts.getOptical(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'pci':
+        this.getProducts.getPci(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'sound':
+        this.getProducts.getSound(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'thermopaste':
+        this.getProducts.getThermopaste(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'enclosure':
+        this.getProducts.getDiskEnclosure(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'case':
+        this.getProducts.getCase(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
     }
   }
 
   paginate(evt: any) {
     this.first = evt.first;
-    this.skip = this.limit * this.first
+    this.skip = this.limit * evt.page;
     this.getProduct();
   }
 

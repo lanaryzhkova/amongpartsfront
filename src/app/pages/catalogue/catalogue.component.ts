@@ -27,7 +27,7 @@ export class CatalogueComponent implements OnInit {
           {label: 'SSD-накопители', value: 'ssd'},
           {label: 'HDD-накопители', value: 'hdd'},
           {label: 'Видеокарты', value: 'gpu'},
-          {label: 'Звуковые карты', value: 'audio'},
+          {label: 'Звуковые карты', value: 'sound'},
           {label: 'Блоки питания', value: 'psu'},
         ]
       },
@@ -35,14 +35,17 @@ export class CatalogueComponent implements OnInit {
         label: 'Охлаждение',
         items: [
           {label: 'Для процессора', value: 'coolcpu'},
-          {label: 'Для корпуса', value: 'coolcorpus'}
+          {label: 'Для корпуса', value: 'coolcase'}
         ]
       },
       {
         label: 'Дополнительно',
         items: [
+          {label: 'Оптические приводы', value: 'optical'},
+          {label: 'PCI-контроллер', value: 'pci'},
+          {label: 'Карманы для накопителей', value: 'enclosure'},
           {label: 'Термопаста', value: 'thermopaste'},
-          {label: 'Корпуса', value: 'corpus'}
+          {label: 'Корпуса', value: 'case'}
         ]
       }
     ]
