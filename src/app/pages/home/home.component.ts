@@ -27,15 +27,18 @@ export class HomeComponent implements OnInit {
   part_cards = [
     {
       title: "Материнские платы",
-      src: "/assets/motherboard.png"
+      src: "/assets/motherboard.png",
+      value: "motherboard"
     },
     {
       title: "Центральные процессоры",
-      src: "/assets/cpu.png"
+      src: "/assets/cpu.png",
+      value: "cpu"
     },
     {
       title: "Оперативная память",
-      src: "/assets/memories.png"
+      src: "/assets/memories.png",
+      value: "ram"
     },
   ]
 

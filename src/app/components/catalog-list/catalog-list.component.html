@@ -21,8 +21,15 @@
 <ng-container *ngIf="product">
   <p-dialog [header]="product[0].name" [(visible)]="displayModal" [modal]="true" [style]="{width: '80vw'}" >
     <div class="modal">
-      <img [src]="product[0].images[0]" alt="Картника товара" width="100%">
+      <div class="carousel">
+      <p-carousel [value]="product[0].images" >
+        <ng-template let-item pTemplate="item">
+          <img [src]="item" alt="{{product[0].name}}" width="500px">
+        </ng-template>
+      </p-carousel>
+      </div>
       <ol class="modal__list">
+        Характеристики:
         <ng-container *ngFor="let item of product[0].specifications">
           <li><b>{{item.key}}</b>: {{item.value}}</li>
         </ng-container>
