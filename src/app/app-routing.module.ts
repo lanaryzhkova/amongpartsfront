@@ -22,6 +22,13 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'guide',
+    loadChildren: () =>
+      import('./pages/guide/guide.module').then(
+        (m) => m.GuideModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

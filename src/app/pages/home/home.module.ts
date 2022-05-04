@@ -10,7 +10,7 @@ import {ArticleCardModule} from "../../components/article-card/article-card.modu
   declarations: [
     HomeComponent,
     ActionCardComponent,
-    HomePartCardComponent
+    HomePartCardComponent,
   ],
   imports: [
     ArticleCardModule,
