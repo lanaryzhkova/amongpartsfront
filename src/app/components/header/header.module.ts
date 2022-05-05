@@ -3,6 +3,7 @@ import { CommonModule }      from '@angular/common';
 import { HeaderComponent }   from "src/app/components/header/header.component";
 import { RouterModule }      from "@angular/router";
 import { SplitButtonModule } from "primeng/splitbutton";
+import { AuthModule }        from "src/app/components/auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { SplitButtonModule } from "primeng/splitbutton";
         component: HeaderComponent,
       },
     ]),
+    AuthModule,
   ]
 })
-export class HeaderModule { }
+export class HeaderModule {
+}

@@ -9,7 +9,17 @@
         <input type="text" placeholder="поиск">
         <p-button styleClass="p-button-outlined p-button-m" label="найти"></p-button>
       </form>
-      <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
+      <div class="header__auth-wrapper">
+        <button class="header__btn" type="button" (click)="toggleAuthModal()">
+          <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
+        </button>
+        <app-auth
+          class="header__auth"
+          [openAuth]="openAuth"
+        ></app-auth>
+      </div>
     </div>
   </div>
 </section>
+
+
