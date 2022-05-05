@@ -1,9 +1,11 @@
-import { NgModule }        from '@angular/core';
-import { CommonModule }    from '@angular/common';
-import { AuthComponent }   from "src/app/components/auth/auth.component";
-import { RouterModule }    from "@angular/router";
-import { InputTextModule } from "primeng/inputtext";
-import { ButtonModule }    from "primeng/button";
+import { NgModule }            from '@angular/core';
+import { CommonModule }        from '@angular/common';
+import { AuthComponent }       from "src/app/components/auth/auth.component";
+import { RouterModule }        from "@angular/router";
+import { InputTextModule }     from "primeng/inputtext";
+import { ButtonModule }        from "primeng/button";
+import { DialogModule }        from "primeng/dialog";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -24,6 +26,8 @@ import { ButtonModule }    from "primeng/button";
     ]),
     InputTextModule,
     ButtonModule,
+    DialogModule,
+    ReactiveFormsModule,
   ]
 })
 export class AuthModule { }

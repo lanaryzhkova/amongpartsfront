@@ -1,17 +1,56 @@
 <ng-container *ngIf="openAuth">
   <div class="form">
-    <form class="form__wrapper">
+
+    <ng-container *ngIf="boolen; else id">
+      bla
+    </ng-container>
+    <ng-template #id>
+      blabla
+    </ng-template>
+
+    <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitLogin(login.value)">
       <span class="p-float-label">
-        <input id="float-input" type="text" pInputText>
-        <label for="float-input">Логин</label>
+        <input id="login-input" type="text" pInputText formControlName="username">
+        <label for="login-input">Логин</label>
       </span>
       <span class="p-float-label">
-        <input id="float-input2" type="text" pInputText>
-        <label for="float-input">Пароль</label>
+        <input id="pass-input" type="text" pInputText formControlName="password">
+        <label for="pass-input">Пароль</label>
       </span>
-      <p-button label="Вход" [style]="{width: '100%'}"></p-button>
+      <button pButton type="submit" label="Вход" [disabled]="!login.valid" [style]="{width: '100%'}"></button>
     </form>
-    <p-button label="Регистрация" [style]="{width: '100%'}"></p-button>
-    <p-button label="Забыли пароль?" styleClass="p-button-link" [style]="{width: '100%'}"></p-button>
+    <p-button label="Регистрация" [style]="{width: '100%'}" (click)="regModal=true"></p-button>
+    <p-button label="Забыли пароль?" styleClass="p-button-link" [style]="{width: '100%'}"
+              (click)="forgotModal=true"></p-button>
   </div>
 </ng-container>
+<p-dialog header="Регистрация" [(visible)]="regModal" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+  <form [formGroup]="registration" (ngSubmit)="onSubmitRegister(registration.value)">
+      <span class="p-float-label">
+        <input id="reg-login" type="text" pInputText formControlName="email">
+        <label for="reg-login">Почта</label>
+      </span>
+      <span class="p-float-label">
+        <input id="reg-pass" type="text" pInputText formControlName="password">
+        <label for="reg-pass">Пароль</label>
+      </span>
+    <button pButton type="submit" label="Зарегистрироваться" [disabled]="!registration.valid"></button>
+  </form>
+</p-dialog>
+<p-dialog header="Восстановление пароля" [(visible)]="forgotModal" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+  <form>
+    <span class="p-float-label">
+      <input id="forgot-login" type="text" pInputText>
+      <label for="forgot-login">Логин</label>
+    </span>
+    <span class="p-float-label">
+      <input id="forgot-pass" type="text" pInputText>
+      <label for="forgot-pass">Пароль</label>
+    </span>
+  </form>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="forgotModal=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
