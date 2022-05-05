@@ -1,0 +1,14 @@
+.form {
+  border: 1px solid #0D6EFD;
+  border-radius: 4px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

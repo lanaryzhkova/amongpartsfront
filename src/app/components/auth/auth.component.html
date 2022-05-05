@@ -1,0 +1,17 @@
+<ng-container *ngIf="openAuth">
+  <div class="form">
+    <form class="form__wrapper">
+      <span class="p-float-label">
+        <input id="float-input" type="text" pInputText>
+        <label for="float-input">Логин</label>
+      </span>
+      <span class="p-float-label">
+        <input id="float-input2" type="text" pInputText>
+        <label for="float-input">Пароль</label>
+      </span>
+      <p-button label="Вход" [style]="{width: '100%'}"></p-button>
+    </form>
+    <p-button label="Регистрация" [style]="{width: '100%'}"></p-button>
+    <p-button label="Забыли пароль?" styleClass="p-button-link" [style]="{width: '100%'}"></p-button>
+  </div>
+</ng-container>
