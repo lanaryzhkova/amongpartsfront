@@ -10,12 +10,6 @@
     </p-listbox>
   </nav>
   <div>
-    <ng-container *ngIf="!warning; else tmplwarning">
-      <router-outlet></router-outlet>
-    </ng-container>
+    <router-outlet></router-outlet>
   </div>
 </section>
-
-<ng-template #tmplwarning>
-  Выберите категорию
-</ng-template>
