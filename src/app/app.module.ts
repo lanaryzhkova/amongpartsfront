@@ -10,7 +10,7 @@ import { HeaderModule }            from "./components/header/header.module";
 import { CatalogueModule }         from "./pages/catalogue/catalogue.module";
 import { GuideModule }             from "./pages/guide/guide.module";
 import { AuthModule }              from "./components/auth/auth.module";
-import {CookieService} from "ngx-cookie-service";
+import { CookieService }           from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -28,8 +28,9 @@ import {CookieService} from "ngx-cookie-service";
     GuideModule,
     AuthModule
   ],
-  providers: [ CookieService ],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
