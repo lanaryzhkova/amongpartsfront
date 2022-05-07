@@ -19,7 +19,7 @@
 </ng-template>
 
 <ng-container *ngIf="product">
-  <p-dialog [header]="product[0].name" [(visible)]="displayModal" [modal]="true" [style]="{width: '80vw'}" >
+  <p-dialog [header]="product[0].name" [draggable]="false" [(visible)]="displayModal" [modal]="true" [style]="{width: '80vw'}" >
     <div class="modal">
       <div class="carousel">
       <p-carousel [value]="product[0].images" >

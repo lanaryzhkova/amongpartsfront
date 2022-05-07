@@ -36,6 +36,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'configurator',
+    loadChildren: () =>
+      import('./pages/configurator/configurator.module').then(
+        (m) => m.ConfiguratorModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

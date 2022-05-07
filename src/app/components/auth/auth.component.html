@@ -1,14 +1,14 @@
 <ng-container *ngIf="openAuth">
   <div class="form">
 
-    <ng-container *ngIf="boolen; else id">
-      bla
-    </ng-container>
-    <ng-template #id>
-      blabla
-    </ng-template>
+<!--    <ng-container *ngIf="boolen; else id">-->
+<!--      bla-->
+<!--    </ng-container>-->
+<!--    <ng-template #id>-->
+<!--      blabla-->
+<!--    </ng-template>-->
 
-    <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitLogin(login.value)">
+    <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitSignIn(login.value)">
       <span class="p-float-label">
         <input id="login-input" type="text" pInputText formControlName="username">
         <label for="login-input">Логин</label>

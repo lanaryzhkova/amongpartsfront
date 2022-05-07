@@ -19,8 +19,10 @@ export class AuthComponent implements OnInit {
   login = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    grant_type: new FormControl('password'),
+
   });
+
+
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -39,5 +41,10 @@ export class AuthComponent implements OnInit {
       console.log(e)
       alert('Пользователь успешно вошел в аккаунт!')
     })
+  }
+
+  onSubmitSignIn(value: any) {
+    console.log(value)
+    this.auth.signIn(value);
   }
 }
