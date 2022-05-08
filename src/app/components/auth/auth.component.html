@@ -1,12 +1,12 @@
 <ng-container *ngIf="openAuth">
   <div class="form">
 
-    <!--    <ng-container *ngIf="boolen; else id">-->
-    <!--      bla-->
-    <!--    </ng-container>-->
-    <!--    <ng-template #id>-->
-    <!--      blabla-->
-    <!--    </ng-template>-->
+<!--    <ng-container *ngIf="boolen; else id">-->
+<!--      bla-->
+<!--    </ng-container>-->
+<!--    <ng-template #id>-->
+<!--      blabla-->
+<!--    </ng-template>-->
 
     <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitSignIn(login.value)">
       <span class="p-float-label">
@@ -31,7 +31,7 @@
         <input id="reg-login" type="text" pInputText formControlName="email">
         <label for="reg-login">Почта</label>
       </span>
-    <span class="p-float-label">
+      <span class="p-float-label">
         <input id="reg-pass" type="text" pInputText formControlName="password">
         <label for="reg-pass">Пароль</label>
       </span>
