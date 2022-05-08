@@ -6,8 +6,9 @@ import { PartCardModule }       from "src/app/components/part-card/part-card.mod
 import { RouterModule }         from "@angular/router";
 import { CatalogueComponent }   from "src/app/pages/catalogue/catalogue.component";
 import { DialogModule }         from "primeng/dialog";
-import {GalleriaModule} from "primeng/galleria";
-import {CarouselModule} from "primeng/carousel";
+import {GalleriaModule}         from "primeng/galleria";
+import {CarouselModule}         from "primeng/carousel";
+import { TableModule }          from "primeng/table";
 
 
 
@@ -18,19 +19,20 @@ import {CarouselModule} from "primeng/carousel";
   exports: [
     CatalogListComponent
   ],
-  imports: [
-    CommonModule,
-    PaginatorModule,
-    PartCardModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: CatalogueComponent,
-      },
-    ]),
-    DialogModule,
-    GalleriaModule,
-    CarouselModule,
-  ]
+    imports: [
+        CommonModule,
+        PaginatorModule,
+        PartCardModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: CatalogueComponent,
+            },
+        ]),
+        DialogModule,
+        GalleriaModule,
+        CarouselModule,
+        TableModule,
+    ]
 })
 export class CatalogListModule { }

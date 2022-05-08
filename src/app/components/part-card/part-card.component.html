@@ -1,17 +1,20 @@
-<div class="cards" id="cards">
-  <p-card [style]="{width: '230px', boxShadow:'0 0 5px rgba(122,122,122,0.5)'}"
-          styleClass="p-card-shadow">
-    <ng-template pTemplate="header">
-      <div class="name-image">
-        <p>{{name}}</p>
-        <img class="part-image" alt="Карточка товара {{name}}" [src]="images[0]">
-      </div>
-    </ng-template>
-    <p class="description">{{description}}</p>
-    <ng-template pTemplate="footer">
-      <p-button (click)="showModalDialog()" styleClass="p-button-sm" label="Подробнее"></p-button>
-    </ng-template>
-  </p-card>
-</div>
+<!--<p-card [style]="{width: '230px', padding: '10px', boxShadow:'0 0 5px rgba(122,122,122,0.5)'}"-->
+<!--        styleClass="p-card-shadow p-p0">-->
+<!--  <ng-template pTemplate="header">-->
+<!--    <img class="cards__img" alt="Карточка товара {{name}}" [src]="images[0]">-->
+<!--  </ng-template>-->
+<!--  <p class="cards__name">{{name}}</p>-->
+<!--  <div class="cards__body">-->
+<!--    <p class="cards__description">{{refactorDescription}}</p>-->
+<!--  </div>-->
+<!--  <ng-template pTemplate="footer">-->
+<!--    <p-button (click)="showModalDialog()" styleClass="p-button-sm" label="Подробнее"></p-button>-->
+<!--  </ng-template>-->
+<!--</p-card>-->
 
-
+<section class="cards">
+  <img class="cards__img" alt="Карточка товара {{name}}" [src]="images[0]" width="210" height="210">
+  <p class="cards__name">{{name}}</p>
+  <p class="cards__description">{{refactorDescription}}</p>
+  <p-button [style]="{alignContent: 'flex-end'}"  (click)="showModalDialog()" styleClass="p-button-sm" label="Подробнее"></p-button>
+</section>

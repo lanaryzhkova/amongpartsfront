@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   catalogLink() {
-    this.router.navigate(['/parts'])
+    this.router.navigate(['/parts/motherboard'])
   }
 
   toggleAuthModal():void {

@@ -8,8 +8,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PartCardComponent {
   @Input() name?: string;
   @Input() images?: any | null = 'https://imgholder.ru/323x300/3d4d65/eceff4';
-  @Input() description?: string | null = 'Нет описания';
+  @Input() set description(value: any) {
+    this.refactorDescription =  `${value.substr(0, 60)}...`
+  }
   @Output() ModalDialog = new EventEmitter<string>();
+  refactorDescription = 'Нет описания'
 
   constructor() {
 

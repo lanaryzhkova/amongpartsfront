@@ -128,7 +128,5 @@ export class CatalogListComponent implements OnInit {
     this.product = this.currentProducts.filter((obj: any) => {
       return obj.name === evt
     })
-
-    console.log(this.product[0])
   }
 }

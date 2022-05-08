@@ -10,11 +10,20 @@
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+  min-height: max-content;
+  margin-bottom: 16px;
+}
+
+.catalog__card {
+  width: 230px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(122,122,122,0.5);
 }
 
 .modal {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content 1fr;
 }
 
 .modal__list {
@@ -23,8 +32,32 @@
   line-height: 32px;
 }
 
+.modal__desc {
+  margin-bottom: 16px;
+}
+
+.table__row {
+  border: 1px solid black;
+}
+
 .carousel{
   width: 600px;
   margin: 0 auto;
+  grid-row: 1/-1;
+}
 
+.table__wrapper {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  &:after {
+    background: linear-gradient(180deg,hsla(0,0%,100%,0),#fff 79.69%);
+    content: "";
+    height: 75px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+  }
 }
