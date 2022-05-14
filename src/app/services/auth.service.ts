@@ -56,7 +56,7 @@ export class AuthService {
 
   resetPassword(body: any): Observable<any> {
     console.log(localStorage.getItem('Cookie'))
-    return this.http.post(`${this.endpoint}/auth/reset-password`, body,
+    return this.http.patch(`${this.endpoint}/user/me`, body,
       {
         withCredentials: true,
       })

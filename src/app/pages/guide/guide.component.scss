@@ -9,7 +9,6 @@
 .header-text{
   font-size: 30px;
   font-weight: bold;
-  color: #0288D1;
   text-align: center;
 }
 
@@ -29,6 +28,8 @@
   .body-parts{
     text-align: center;
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .body-order{
@@ -40,6 +41,7 @@
           display: block;
           margin: 10px auto 10px;
           width: 40%;
+          min-width: 250px;
         }
     }
   }
@@ -49,6 +51,8 @@
   display: flex;
   gap: 60px;
   margin: 30px auto;
+  flex-wrap: wrap;
+  justify-content: center;
 
   img{
     width: 50px;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetProductService } from "src/app/services/get-product.service";
-import { ActivatedRoute }    from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'catalog-list',
@@ -13,11 +13,12 @@ export class CatalogListComponent implements OnInit {
   skip = 0;
   limit = 12;
   totalRecords: any = 0;
-  private selectedId!: string | null;
+  selectedId!: string | null;
   first: number = 0;
   displayModal = false;
+  category?: string;
 
-  constructor(private getProducts: GetProductService, private route: ActivatedRoute) {
+  constructor(private getProducts: GetProductService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,6 +28,9 @@ export class CatalogListComponent implements OnInit {
       this.skip = 0;
       this.getProduct()
     });
+  }
+  routingPass(link: any, category = this.selectedId) {
+    this.router.navigate([`parts/${this.selectedId}/${link}`]);
   }
 
   getProduct(): void {
@@ -91,7 +95,7 @@ export class CatalogListComponent implements OnInit {
           this.totalRecords = val.amount
         })
         break;
-      case 'thermopaste':
+      case 'paste':
         this.getProducts.getThermopaste(this.skip, this.limit).subscribe((val) => {
           this.currentProducts = val.data
           this.totalRecords = val.amount
@@ -105,6 +109,18 @@ export class CatalogListComponent implements OnInit {
         break;
       case 'case':
         this.getProducts.getCase(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'case_cooling':
+        this.getProducts.getCaseCooling(this.skip, this.limit).subscribe((val) => {
+          this.currentProducts = val.data
+          this.totalRecords = val.amount
+        })
+        break;
+      case 'cpu_cooling':
+        this.getProducts.getCpuCooling(this.skip, this.limit).subscribe((val) => {
           this.currentProducts = val.data
           this.totalRecords = val.amount
         })

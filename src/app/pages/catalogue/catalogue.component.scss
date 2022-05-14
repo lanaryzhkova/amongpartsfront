@@ -7,8 +7,6 @@
   gap: 15px;
 
   .categories{
-    position: sticky;
-    top: 0;
     width: 20%;
     min-width: 250px;
   }
@@ -25,3 +23,16 @@
   }
 }
 
+@media (max-width: 530px)
+{
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .categories{
+
+    margin: 0 auto;
+  }
+}

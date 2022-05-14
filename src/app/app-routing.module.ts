@@ -43,6 +43,34 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'request',
+    loadChildren: () =>
+      import('./pages/request-build/request-build.module').then(
+        (m) => m.RequestBuildModule,
+      ),
+  },
+  {
+    path: 'createbuild',
+    loadChildren: () =>
+      import('./pages/create-build/create-build.module').then(
+        (m) => m.CreateBuildModule,
+      ),
+  },
+  {
+    path: 'compare',
+    loadChildren: () =>
+      import('./pages/compare-parts/compare-parts.module').then(
+        (m) => m.ComparePartsModule,
+      ),
+  },
+  {
+    path: 'parts/:category/:id',
+    loadChildren: () =>
+      import('./pages/part-page/part-page.module').then(
+        (m) => m.PartPageModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

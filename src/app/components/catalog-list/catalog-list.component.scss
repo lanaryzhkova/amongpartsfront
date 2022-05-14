@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: max-content 1fr;
+  gap: 1rem;
 }
 
 .modal__list {

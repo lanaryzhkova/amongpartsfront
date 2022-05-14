@@ -32,8 +32,8 @@ export class CatalogueComponent implements OnInit {
       {
         label: 'Охлаждение',
         items: [
-          {label: 'Для процессора', value: 'coolcpu'},
-          {label: 'Для корпуса', value: 'coolcase'}
+          {label: 'Для процессора', value: 'cpu_cooling'},
+          {label: 'Для корпуса', value: 'case_cooling'}
         ]
       },
       {
@@ -42,7 +42,7 @@ export class CatalogueComponent implements OnInit {
           {label: 'Оптические приводы', value: 'optical'},
           {label: 'PCI-контроллер', value: 'pci'},
           {label: 'Карманы для накопителей', value: 'enclosure'},
-          {label: 'Термопаста', value: 'thermopaste'},
+          {label: 'Термопаста', value: 'paste'},
           {label: 'Корпуса', value: 'case'}
         ]
       }

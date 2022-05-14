@@ -1,4 +1,39 @@
 <section class="container">
-<p class="header-text">Сборка компьютера</p>
-<p class="body-text">Выберите уровень владения компьютером:</p>
+<p class="header-text">Подбор компьютера</p>
+<p routerLink="/createbuild" class="hyperlink">Собрать конфигурацию самостоятельно</p>
+  <ng-container >
+<p class="body-text">Выберите параметры, по которым должна совпадать конфигурация:</p>
+  <div class="checkboxes">
+  <div class="field-checkbox">
+    <p-checkbox name="group1" value="New York" id="val1"></p-checkbox>
+    <label for="val1">New York</label>
+  </div>
+  <div class="field-checkbox">
+    <p-checkbox name="group1" value="New York" id="val2"></p-checkbox>
+    <label for="val2">New York</label>
+  </div>
+  <div class="field-checkbox">
+    <p-checkbox name="group1" value="New York" id="val3"></p-checkbox>
+    <label for="val3">New York</label>
+  </div>
+  <div class="field-checkbox">
+    <p-checkbox name="group1" value="New York" id="val4"></p-checkbox>
+    <label for="val4">New York</label>
+  </div>
+  </div>
+  <p class="body-text">Подходящие конфигурации:</p>
+  <div class="cards">
+  <div class="card-build">
+  <p-card>
+    <ng-template pTemplate="header">
+      Конфигурация 1
+    </ng-template>
+    Тут начало списка компонентов или че нибудь
+    <ng-template pTemplate="footer">
+      Примерная стоимость:
+    </ng-template>
+  </p-card>
+  </div>
+  </div>
+  </ng-container>
 </section>

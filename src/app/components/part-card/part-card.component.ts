@@ -11,12 +11,16 @@ export class PartCardComponent {
   @Input() set description(value: any) {
     this.refactorDescription =  `${value.substr(0, 60)}...`
   }
+  @Input() category!: string | null;
+  @Input() link?: string;
   @Output() ModalDialog = new EventEmitter<string>();
   refactorDescription = 'Нет описания'
 
   constructor() {
 
   }
+
+
 
   showModalDialog() {
     this.ModalDialog.emit(this.name)

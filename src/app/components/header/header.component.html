@@ -1,14 +1,29 @@
 <section class="wrapper">
   <div class="header">
     <div class="header-left-part">
-      <p class="logo" routerLink="/">AmongParts</p>
+      <img class="logo" src="assets/logo_amongparts.svg" routerLink="/" alt="Among Parts">
       <p-button styleClass="p-button-info p-button-m" label="каталог компонентов" icon="pi pi-bars" (onClick)="catalogLink()" ></p-button>
     </div>
     <div class="header-right-part">
-      <form>
-        <input type="text" placeholder="поиск">
-        <p-button styleClass="p-button-outlined p-button-m" label="найти"></p-button>
-      </form>
+      <div class="header__search-wrapper">
+
+        <p-autoComplete [(ngModel)]="text" [suggestions]="currentProducts" (completeMethod)="search($event)" placeholder="поиск..." field="name" (onSelect)="redirect($event)" >
+          <ng-template let-item pTemplate="item" >
+            <div class="header__search"> {{item.name.length > 35 ? item.name.slice(0,35)+'...' : item.name}}</div>
+          </ng-template>
+        </p-autoComplete>
+
+<!--        <input type="text" [(ngModel)]="searchString" name="search" placeholder="поиск">-->
+<!--      <div class="header__search" *ngIf="openSearch">-->
+<!--        <div class="result-wrapper">-->
+<!--        <ng-container *ngIf="currentProduct; else notFound">-->
+<!--          <ng-container *ngFor="let item of currentProduct">-->
+<!--            <p>{{item?.name}}</p>-->
+<!--          </ng-container>-->
+<!--        </ng-container>-->
+<!--        </div>-->
+<!--      </div>-->
+      </div>
       <div class="header__auth-wrapper">
         <button class="header__btn" type="button" (click)="toggleAuthModal()">
           <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
@@ -21,5 +36,8 @@
     </div>
   </div>
 </section>
+<ng-template #notFound>
+  <p>Такого компонента нет в нашем каталоге.</p>
+</ng-template>
 
 

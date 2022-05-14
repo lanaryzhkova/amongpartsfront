@@ -164,4 +164,37 @@ export class GetProductService {
 
     return this.http.get('https://amongparts.ga/api/case/all', {params})
   }
+
+  getCaseCooling(skip?: number, limit?: number): Observable<any> {
+    let params: HttpParams = new HttpParams();
+    if (limit) {
+      params = params.set('limit', limit);
+    }
+    if (skip) {
+      params = params.set('skip', skip);
+    }
+
+    return this.http.get('https://amongparts.ga/api/case_cooling/all', {params})
+  }
+
+  getCpuCooling(skip?: number, limit?: number): Observable<any> {
+    let params: HttpParams = new HttpParams();
+    if (limit) {
+      params = params.set('limit', limit);
+    }
+    if (skip) {
+      params = params.set('skip', skip);
+    }
+
+    return this.http.get('https://amongparts.ga/api/cpu_cooling/all', {params})
+  }
+
+  getProductByLink(category?: string, name?: string): Observable<any> {
+    let params: HttpParams = new HttpParams();
+    if (name) {
+      params = params.set('name', name);
+    }
+
+    return this.http.get('https://amongparts.ga/api/' + category + '/get/' + name, {params})
+  }
 }

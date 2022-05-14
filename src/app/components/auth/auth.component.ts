@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   resetModal: boolean = false;
   regModal: boolean = false;
   registration = new FormGroup({
+    username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
@@ -70,9 +71,9 @@ export class AuthComponent implements OnInit {
     })
   }
 
-  reset(value: any) {
-    this.auth.resetPassword(value).subscribe(value => {
-      console.log(value)
-    })
-  }
+  // reset(value: any) {
+  //   this.auth.resetPassword(value).subscribe(value => {
+  //     console.log(value)
+  //   })
+  // }
 }

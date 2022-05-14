@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from "@angular/router";
 import {ConfiguratorComponent} from "./configurator.component";
+import {CheckboxModule} from "primeng/checkbox";
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import {ConfiguratorComponent} from "./configurator.component";
         component: ConfiguratorComponent,
       },
     ]),
+    CheckboxModule,
+    CardModule,
   ]
 })
 export class ConfiguratorModule { }

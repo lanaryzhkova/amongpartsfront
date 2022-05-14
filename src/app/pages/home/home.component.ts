@@ -8,19 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   action_cards = [
     {
-      title: "Собрать компьютер",
-      body: "Соберите конфигурацию компьютера на свой вкус!",
-      src: "/assets/action1.png"
+      title: "Подобрать компьютер",
+      body: "Подберите конфигурацию компьютера на свой вкус!",
+      src: "/assets/action1.png",
+      link: "configurator"
     },
     {
       title: "Подать заявку",
       body: "Подайте заявку на сборку компьютера с выбранной конфигурацией!",
-      src: "/assets/action2.png"
+      src: "/assets/action2.png",
+      link: "request",
     },
     {
       title: "Сравнить компоненты",
       body: "Выберите компоненты одной категории и узнайте, какой из них лучше!",
-      src: "/assets/action3.png"
+      src: "/assets/action3.png",
+      link: "compare",
     },
   ]
 
@@ -28,17 +31,17 @@ export class HomeComponent implements OnInit {
     {
       title: "Материнские платы",
       src: "/assets/motherboard.png",
-      value: "motherboard"
+      link: 'motherboard'
     },
     {
       title: "Центральные процессоры",
       src: "/assets/cpu.png",
-      value: "cpu"
+      link: 'cpu',
     },
     {
       title: "Оперативная память",
       src: "/assets/memories.png",
-      value: "ram"
+      link: "ram"
     },
   ]
 

@@ -1,0 +1,38 @@
+<section class="container">
+  <p class="header-text">
+    Подать заявку на сборку конфигурации
+  </p>
+  <p>Для подачи заявки необходимо заполнить следующую форму:</p>
+  <div class="field">
+  <p class="body-text">
+    Ваше имя:
+  </p>
+  <input type="text" pInputText>
+  </div>
+  <div class="field">
+  <p class="body-text">
+    Ваш e-mail:
+  </p>
+  <input type="text" pInputText>
+  </div>
+  <div class="field">
+    <p class="body-text">
+      Ваш номер телефона:
+    </p>
+    <p-inputMask  mask="+7-999-999-99-99" [style]="{width: '25%'}"></p-inputMask>
+  </div>
+  <div class="field">
+  <p class="body-text">
+    Опишите пожелания по составу конфигурации и производительности:
+  </p>
+  <textarea pInputTextarea [style]="{width: '30vw', height:'10vw'}"></textarea>
+  </div>
+  <div class="field">
+  <p class="body-text">
+    Введите желаемую стоимость:
+  </p>
+  <input type="text" pInputText>
+  </div>
+  <p-button  label="Подать заявку"></p-button>
+  <p></p>
+</section>

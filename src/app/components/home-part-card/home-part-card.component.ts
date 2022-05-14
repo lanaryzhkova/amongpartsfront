@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-part-card',
@@ -7,7 +8,8 @@ import {Component, Input} from '@angular/core';
 })
 export class HomePartCardComponent {
   @Input() title?: string;
-  @Input() body?: string;
   @Input() src?: string;
-  @Input() value?: string;
+  @Input() link?: any;
+
 }
+

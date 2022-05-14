@@ -9,5 +9,6 @@ export class ActionCardComponent {
   @Input() title?: string;
   @Input() body?: string;
   @Input() src?: string;
+  @Input() link?: string;
 
 }

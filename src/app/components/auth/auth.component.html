@@ -4,10 +4,10 @@
       <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitSignIn(login.value)">
       <span class="p-float-label">
         <input id="login-input" type="text" pInputText formControlName="username">
-        <label for="login-input">Логин</label>
+        <label for="login-input">E-mail</label>
       </span>
         <span class="p-float-label">
-        <input id="pass-input" type="text" pInputText formControlName="password">
+          <input type="password" pPassword id="pass-input" [feedback]="false" formControlName="password">
         <label for="pass-input">Пароль</label>
       </span>
         <button pButton type="submit" label="Вход" [disabled]="!login.valid" [style]="{width: '100%'}"></button>
@@ -17,34 +17,40 @@
     </ng-container>
   </div>
 </ng-container>
-<p-dialog header="Регистрация" [(visible)]="regModal" [modal]="true" [style]="{width: '50vw'}"
+<p-dialog header="Регистрация" [(visible)]="regModal" [modal]="true" [style]="{width: '25vw'}"
           [draggable]="false" [resizable]="false">
-  <form [formGroup]="registration" (ngSubmit)="onSubmitRegister(registration.value)">
+  <form  class="form__wrapper__reg"  [formGroup]="registration" (ngSubmit)="onSubmitRegister(registration.value)">
+     <span class="p-float-label">
+        <input id="reg-username" type="text" pInputText formControlName="username">
+        <label for="reg-login">Имя пользователя</label>
+      </span>
       <span class="p-float-label">
         <input id="reg-login" type="text" pInputText formControlName="email">
-        <label for="reg-login">Почта</label>
+        <label for="reg-login">E-mail</label>
       </span>
     <span class="p-float-label">
-        <input id="reg-pass" type="text" pInputText formControlName="password">
+       <input  pPassword type="password" id="reg-pass"formControlName="password">
         <label for="reg-pass">Пароль</label>
       </span>
     <button pButton type="submit" label="Зарегистрироваться" [disabled]="!registration.valid"></button>
   </form>
 </p-dialog>
 
-<p-dialog header="Сброс пароля" [(visible)]="resetModal" [modal]="true" [style]="{width: '50vw'}"
-          [draggable]="false" [resizable]="false">
-  <form [formGroup]="resetForm" (ngSubmit)="reset(resetForm.value)">
-    <span class="p-float-label">
-      <input id="pass-new" type="text" pInputText formControlName="password">
-      <label for="pass-new">Введите новый пароль</label>
-    </span>
-    <button pButton type="submit" label="Сбросить" [disabled]="!resetForm.valid"></button>
-  </form>
-</p-dialog>
+<!--<p-dialog header="Сброс пароля" [(visible)]="resetModal" [modal]="true" [style]="{width: '50vw'}"-->
+<!--          [draggable]="false" [resizable]="false">-->
+<!--  <form [formGroup]="resetForm" (ngSubmit)="reset(resetForm.value)">-->
+<!--    <span class="p-float-label">-->
+<!--      <input id="pass-new" type="text" pInputText formControlName="password">-->
+<!--      <label for="pass-new">Введите новый пароль</label>-->
+<!--    </span>-->
+<!--    <button pButton type="submit" label="Сбросить" [disabled]="!resetForm.valid"></button>-->
+<!--  </form>-->
+<!--</p-dialog>-->
 
 <ng-template #showProfile>
-  Ку, {{currentUser.email}}
+  Привет, {{currentUser.username}}!
+  <p class="hyperlink">Мои сборки</p>
+  <p class="hyperlink"  routerLink="/configurator"><i class="pi pi-plus"></i> Добавить конфигурацию</p>
   <p-button label="Выход" [style]="{width: '100%'}" (click)="logOut()"></p-button>
-  <p-button label="Сбросить пароль" [style]="{width: '100%'}" (click)="resetModal=true"></p-button>
+<!--  <p-button label="Сбросить пароль" [style]="{width: '100%'}" (click)="resetModal=true"></p-button>-->
 </ng-template>

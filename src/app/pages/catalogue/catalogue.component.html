@@ -1,7 +1,7 @@
 <section class="container">
   <nav class="categories">
     <p-listbox [options]="groupedCategories" [group]="true" (onClick)="linkProduct($event)"
-               [listStyle]="{'max-height':'800px'}" [style]="{'width':'15rem'}">
+               [listStyle]="{'max-height':'800px'}">
       <ng-template let-group pTemplate="group">
         <div class="p-d-flex p-ai-center">
           <span>{{group.label}}</span>
