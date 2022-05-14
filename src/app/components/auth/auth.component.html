@@ -17,7 +17,7 @@
     </ng-container>
   </div>
 </ng-container>
-<p-dialog header="Регистрация" [(visible)]="regModal" [modal]="true" [style]="{width: '25vw'}"
+<p-dialog header="Регистрация" [(visible)]="regModal" [modal]="true" [style]="{width: '25vw', minWidth: '250px'}"
           [draggable]="false" [resizable]="false">
   <form  class="form__wrapper__reg"  [formGroup]="registration" (ngSubmit)="onSubmitRegister(registration.value)">
      <span class="p-float-label">
@@ -29,10 +29,10 @@
         <label for="reg-login">E-mail</label>
       </span>
     <span class="p-float-label">
-       <input  pPassword type="password" id="reg-pass"formControlName="password">
+       <input  pPassword type="password" id="reg-pass" formControlName="password">
         <label for="reg-pass">Пароль</label>
       </span>
-    <button pButton type="submit" label="Зарегистрироваться" [disabled]="!registration.valid"></button>
+    <button [style]="{minWidth: '140px'}" pButton type="submit" label="Зарегистрироваться" [disabled]="!registration.valid"></button>
   </form>
 </p-dialog>
 

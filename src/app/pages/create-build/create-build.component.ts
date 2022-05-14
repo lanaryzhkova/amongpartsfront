@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {SearchProductService} from "../../services/search-product.service";
 import {CreateBuildService} from "../../services/create-build.service";
 
@@ -73,8 +72,7 @@ export class CreateBuildComponent implements OnInit {
         "paste": this.textPaste?.link_name,
       }
     }
-    console.log(this.getObject)
-    // this.sendBuild.sendBuild(this.getObject).subscribe();
+    this.sendBuild.sendBuild(this.getObject).subscribe();
   }
 
   searchMotherboard(event: any) {
@@ -166,10 +164,5 @@ export class CreateBuildComponent implements OnInit {
     this.searchProduct.searchProductCategory('cpu_cooling', event.query, this.limit).subscribe((val) => {
       this.currentProduct = val;
     })
-  }
-
-  console() {
-    this.mapi.set(this.textMotherboard.category, this.textMotherboard.name)
-    console.log(this.mapi)
   }
 }

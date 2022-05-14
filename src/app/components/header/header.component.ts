@@ -1,10 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {SearchProductService} from "../../services/search-product.service";
-import {map} from "rxjs";
 import {LocationStrategy, PathLocationStrategy} from "@angular/common";
-import {PartPageModule} from "../../pages/part-page/part-page.module";
-import {PartPageComponent} from "../../pages/part-page/part-page.component";
 
 @Component({
   selector: 'app-header',
@@ -14,16 +11,9 @@ import {PartPageComponent} from "../../pages/part-page/part-page.component";
 })
 export class HeaderComponent implements OnInit {
   openAuth = false;
-  openSearch = false;
-  productName?: string;
-  productCategory?: string;
-  productImages?: string;
-  productLink?: string;
 
   text!: any;
   limit!: 12;
-  searchString: any;
-  currentProduct!: any;
   currentProducts!:any[];
   path?: string;
 
@@ -45,8 +35,6 @@ export class HeaderComponent implements OnInit {
     this.searchProduct.searchProduct(event.query, 5).subscribe((val)=>
     {
       this.currentProducts = val;
-      console.log(val)
-      console.log(val.name);
           })
   }
 
