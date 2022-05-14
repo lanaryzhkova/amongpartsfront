@@ -1,9 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit }           from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import {
-  AuthService
-} from "src/app/services/auth.service";
-import { switchMap } from "rxjs";
+import { AuthService }                        from "src/app/services/auth.service";
+import { switchMap }                          from "rxjs";
 
 @Component({
   selector: 'app-auth',
