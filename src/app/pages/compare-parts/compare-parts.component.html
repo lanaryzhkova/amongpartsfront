@@ -1,1 +1,43 @@
-<p>compare-parts works!</p>
+<section class="compare p-3">
+  <span class="p-fluid">
+    <p-autoComplete
+      field="name"
+      [(ngModel)]="selectedParts"
+      [suggestions]="filteredParts"
+      (completeMethod)="filterParts($event)"
+      (onSelect)="getPart($event)"
+      (onUnselect)="unselected($event)"
+      [multiple]="true">
+    </p-autoComplete>
+  </span>
+  <ng-container *ngIf="selectedParts; else emptyParts">
+    <table class="mt-4">
+      <thead>
+        <tr>
+          <th>Характеристики</th>
+          <ng-container *ngFor="let product of paramsParts">
+            <th>{{product.name}}</th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let item of arr">
+        <tr>
+          <td>{{item[0]}}</td>
+          <ng-container *ngFor="let param of item[1]">
+            <td>{{param}}</td>
+          </ng-container>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</section>
+
+<ng-template #emptyParts>
+  <p-card
+    header="Список сравнения пуст."
+    styleClass="mt-6">
+    Выберите от 2х компонентов.
+  </p-card>
+</ng-template>
