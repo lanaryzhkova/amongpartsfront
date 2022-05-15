@@ -29,9 +29,9 @@ export class CreateBuildComponent implements OnInit {
   textPci: any;
   textEnclosure: any;
   textPaste: any;
-  textName: any;
+  textName?: any;
   textType: any;
-  textDesc: any;
+  textDesc?: any;
   types: any;
 
   constructor(private searchProduct: SearchProductService, private sendBuild: CreateBuildService) {
@@ -51,9 +51,9 @@ export class CreateBuildComponent implements OnInit {
   onSubmitForm() {
     this.getObject = {
       "name": this.textName,
-      "type": this.textType,
+      "type": this.textType?.name,
       "description": this.textDesc,
-      "image": this.textCase.images,
+      "image": this.textCase?.images,
       "specifications": {
         "motherboard": this.textMotherboard?.link_name,
         "cpu": this.textCpu?.link_name,

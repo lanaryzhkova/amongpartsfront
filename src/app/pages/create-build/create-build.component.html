@@ -26,7 +26,7 @@
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
             <div class="header__search"
-                 id="motherboard"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+                 id="motherboard"> {{item?.name.slice(17)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -38,7 +38,7 @@
                        (completeMethod)="searchCpu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(9)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -50,7 +50,7 @@
                        (completeMethod)="searchPsu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(12)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -62,7 +62,7 @@
                        (completeMethod)="searchRam($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(18)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -74,7 +74,7 @@
                        (completeMethod)="searchGpu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(10)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -86,7 +86,7 @@
                        (completeMethod)="searchSsd($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(3)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -98,7 +98,7 @@
                        (completeMethod)="searchHdd($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(12)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -110,7 +110,7 @@
                        (completeMethod)="searchSound($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(14)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -122,7 +122,7 @@
                        (completeMethod)="searchCpuCooling($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(18)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -134,7 +134,7 @@
                        (completeMethod)="searchCase($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(6)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -146,7 +146,7 @@
                        (completeMethod)="searchCaseCooling($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(18)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -158,7 +158,7 @@
                        (completeMethod)="searchOptical($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(17)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -170,7 +170,7 @@
                        (completeMethod)="searchPci($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(14)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -182,7 +182,7 @@
                        (completeMethod)="searchEnclosure($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(21)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>
@@ -194,7 +194,7 @@
                        (completeMethod)="searchPaste($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.length > 35 ? item?.name.slice(0, 35) + '...' : item?.name}}</div>
+            <div class="header__search"> {{item?.name.slice(10)}}</div>
           </ng-template>
         </p-autoComplete>
       </span>

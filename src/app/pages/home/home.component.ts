@@ -16,13 +16,13 @@ export class HomeComponent implements OnInit {
     {
       title: "Подать заявку",
       body: "Подайте заявку на сборку компьютера с выбранной конфигурацией!",
-      src: "/assets/action2.png",
+      src: "/assets/action3.png",
       link: "request",
     },
     {
       title: "Сравнить компоненты",
       body: "Выберите компоненты одной категории и узнайте, какой из них лучше!",
-      src: "/assets/action3.png",
+      src: "/assets/action2.png",
       link: "compare",
     },
   ]

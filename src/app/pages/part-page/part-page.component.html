@@ -1,6 +1,7 @@
 <section class="container">
 <ng-container *ngIf="currentProduct">
-  <p class="header-text">{{currentProduct?.name}}</p>
+  <div class="header-text">
+  <p>{{currentProduct?.name}}</p></div>
   <div class="product__all">
       <div class="carousel">
         <p-carousel [value]="currentProduct?.images">
@@ -16,7 +17,7 @@
       {{currentProduct?.description}}</p>
       </div>
       <div class="table__wrapper">
-        <p-table [value]="currentProduct?.specifications" [scrollable]="true" scrollHeight="420px" responsiveLayout="scroll" class="table">
+        <p-table [value]="currentProduct?.specifications" [scrollable]="true" responsiveLayout="scroll" class="table">
           <ng-template pTemplate="header">
             <tr>
               <th>Характеристики</th>

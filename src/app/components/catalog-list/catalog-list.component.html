@@ -7,7 +7,6 @@
           [name]="item?.name"
           [images]="item?.images"
           [description]="item?.description"
-          (ModalDialog)="openDialog($event)"
           [category] ="selectedId"
           [link]="item?.link_name"
           (click)="routingPass(item?.link_name)"

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-part-card',
@@ -13,16 +13,9 @@ export class PartCardComponent {
   }
   @Input() category!: string | null;
   @Input() link?: string;
-  @Output() ModalDialog = new EventEmitter<string>();
   refactorDescription = 'Нет описания'
 
   constructor() {
 
-  }
-
-
-
-  showModalDialog() {
-    this.ModalDialog.emit(this.name)
   }
 }
