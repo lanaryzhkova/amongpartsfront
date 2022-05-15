@@ -72,7 +72,7 @@ export class ComparePartsComponent implements OnInit {
   unselected(e: any) {
     for (let i=0; i<this.paramsParts.length; i++) {
       if (this.paramsParts[i].name == e.name) {
-        if (i == 0) {
+        if (i == 0 && this.paramsParts.length === 1) {
           this.map = new Map();
           this.paramsParts = [];
           this.arr = [];
