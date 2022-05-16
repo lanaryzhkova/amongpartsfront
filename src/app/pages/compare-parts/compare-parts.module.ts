@@ -4,8 +4,6 @@ import { ComparePartsComponent } from "./compare-parts.component";
 import { RouterModule }          from "@angular/router";
 import { AutoCompleteModule }    from "primeng/autocomplete";
 import { FormsModule }           from "@angular/forms";
-import { TooltipModule }         from "primeng/tooltip";
-import { OverlayPanelModule }    from "primeng/overlaypanel";
 import { CardModule }            from "primeng/card";
 import { TableModule }           from "primeng/table";
 
@@ -26,8 +24,6 @@ import { TableModule }           from "primeng/table";
     ]),
     AutoCompleteModule,
     FormsModule,
-    TooltipModule,
-    OverlayPanelModule,
     CardModule,
     TableModule
   ]

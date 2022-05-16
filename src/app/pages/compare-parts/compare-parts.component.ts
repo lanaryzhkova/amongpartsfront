@@ -13,6 +13,7 @@ export class ComparePartsComponent implements OnInit {
   paramsParts: any[] = [];
   map = new Map();
   arr: any = []
+  tableSelectedProduct!: any[];
 
   constructor(private searchProduct: SearchProductService,
               private getProduct: GetProductService) {
