@@ -18,14 +18,10 @@
         <button class="header__btn" type="button" (click)="toggleAuthModal();">
           <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
         </button>
-        <ng-container
-          *ngIf="openAuth"
-        >
-          <app-auth
-            class="header__auth"
-            [openAuth]="openAuth"
-          ></app-auth>
-        </ng-container>
+        <app-auth
+          class="header__auth"
+          [openAuth]="openAuth"
+        ></app-auth>
       </div>
     </div>
   </div>

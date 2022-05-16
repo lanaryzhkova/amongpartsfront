@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit}    from '@angular/core';
 import {SearchProductService} from "../../services/search-product.service";
-import {CreateBuildService} from "../../services/create-build.service";
+import {CreateBuildService}   from "../../services/create-build.service";
+import { MessageService }     from "primeng/api";
 
 @Component({
   selector: 'app-create-build',
   templateUrl: './create-build.component.html',
-  styleUrls: ['./create-build.component.scss']
+  styleUrls: ['./create-build.component.scss'],
+  providers: [MessageService]
 })
 export class CreateBuildComponent implements OnInit {
 
@@ -34,7 +36,7 @@ export class CreateBuildComponent implements OnInit {
   textDesc?: any;
   types: any;
 
-  constructor(private searchProduct: SearchProductService, private sendBuild: CreateBuildService) {
+  constructor(private searchProduct: SearchProductService, private sendBuild: CreateBuildService, private messageService: MessageService) {
     this.types = [
       {name: 'Игровой'},
       {name: 'Для дома'},
@@ -72,7 +74,10 @@ export class CreateBuildComponent implements OnInit {
         "paste": this.textPaste?.link_name,
       }
     }
-    this.sendBuild.sendBuild(this.getObject).subscribe();
+    this.sendBuild.sendBuild(this.getObject).subscribe({
+      error: err => this.messageService.add({severity:'error', summary: 'Ошибка', detail: `${err.status}: ${err.statusText}`}),
+      complete: () => this.messageService.add({severity:'success', summary: 'Успех', detail: 'Сборка собрана'})
+    });
   }
 
   searchMotherboard(event: any) {

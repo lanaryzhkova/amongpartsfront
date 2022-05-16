@@ -5,7 +5,7 @@
         <app-part-card
           class="catalog__card"
           [name]="item?.name"
-          [images]="item?.images"
+          [images]="item?.images[0]"
           [description]="item?.description"
           [category] ="selectedId"
           [link]="item?.link_name"
