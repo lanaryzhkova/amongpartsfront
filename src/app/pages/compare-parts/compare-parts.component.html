@@ -1,36 +1,35 @@
 <section class="compare p-3">
   <span class="p-fluid">
     <p-autoComplete
-      field="name"
-      [(ngModel)]="selectedParts"
-      [suggestions]="filteredParts"
       (completeMethod)="filterParts($event)"
       (onSelect)="getPart($event)"
       (onUnselect)="unselected($event)"
-      [multiple]="true">
+      [(ngModel)]="selectedParts"
+      [multiple]="true"
+      [suggestions]="filteredParts"
+      field="name">
     </p-autoComplete>
   </span>
   <ng-container *ngIf="selectedParts; else emptyParts">
-    <table class="mt-4">
-      <thead>
+
+    <p-table [value]="arr" responsiveLayout="scroll" styleClass="mt-5 p-datatable-striped p-datatable-gridlines">
+      <ng-template pTemplate="header">
         <tr>
           <th>Характеристики</th>
           <ng-container *ngFor="let product of paramsParts">
-            <th>{{product.name}}</th>
+            <th style="text-align: center">{{product.name}}</th>
           </ng-container>
         </tr>
-      </thead>
-      <tbody>
-      <ng-container *ngFor="let item of arr">
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
         <tr>
-          <td>{{item[0]}}</td>
+          <td style="width: 100px">{{item[0]}}</td>
           <ng-container *ngFor="let param of item[1]">
-            <td>{{param}}</td>
+            <td style="text-align: center">{{param}}</td>
           </ng-container>
         </tr>
-      </ng-container>
-      </tbody>
-    </table>
+      </ng-template>
+    </p-table>
   </ng-container>
 </section>
 
