@@ -47,3 +47,27 @@
   padding: 0;
   border-radius: 5px 0 0 5px;
 }
+@media (max-width: 768px) {
+  .btn{
+    width: 100%;
+  }
+  .card{
+    width: 100%;
+    grid-template-columns: max-content 1fr;
+
+    img{
+      grid-row: 1/-1;
+    }
+
+    .card-title{
+
+      grid-row: 1/2;
+    }
+
+    .card-body{
+
+      grid-column: 2/4;
+      grid-row: 2/4;
+    }
+  }
+}

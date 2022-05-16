@@ -2,13 +2,13 @@
   <p>Используйте наши инструменты</p>
   <div class="card-row">
     <ng-container *ngFor="let card of action_cards">
-      <app-action-card [title]="card.title" [body]="card.body" [src]="card.src" [link]="card.link"></app-action-card>
+      <app-action-card class="card" [title]="card.title" [body]="card.body" [src]="card.src" [link]="card.link"></app-action-card>
     </ng-container>
   </div>
   <p>Важные компоненты для сборки компьютера</p>
   <div class="card-row">
     <ng-container *ngFor="let card of part_cards">
-      <app-home-part-card [title]="card.title" [src]="card.src" [link]="card.link"></app-home-part-card>
+      <app-home-part-card class="card" [title]="card.title" [src]="card.src" [link]="card.link"></app-home-part-card>
     </ng-container>
   </div>
   <p>Для чего нужна материнская плата и с чего начать сборку ПК</p>
