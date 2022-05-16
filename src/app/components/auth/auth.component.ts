@@ -2,15 +2,17 @@ import { Component, Input, OnInit }           from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService }                        from "src/app/services/auth.service";
 import { switchMap }                          from "rxjs";
+import { MessageService }                     from "primeng/api";
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls: ['./auth.component.scss'],
+  providers: [MessageService]
 })
 export class AuthComponent implements OnInit {
   @Input() openAuth = false;
-  currentUser?: any;
+  currentUser?: any = this.auth.currentUser;
   resetModal: boolean = false;
   regModal: boolean = false;
   registration = new FormGroup({
@@ -29,26 +31,22 @@ export class AuthComponent implements OnInit {
   });
 
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService,
+              private messageService: MessageService) {
   }
 
   ngOnInit(): void {
   }
 
   onSubmitRegister(value: any) {
-    console.log(value)
-    this.auth.registry(value).subscribe((e) => {
-      console.log(e)
-      alert('Пользователь успешно зарегистрирован!')
-    })
-  }
-
-  onSubmitLogin(value: any) {
-    console.log(value)
-    this.auth.login(value).subscribe((e) => {
-      console.log(e)
-      alert('Пользователь успешно вошел в аккаунт!')
-    })
+    this.auth.registry(value).subscribe(
+      {
+        next: (e) => {
+          console.log(e)
+          this.messageService.add({severity:'success', summary: 'Уведомление', detail: 'Пользователь успешно зарегистрирован!'});
+        }
+      }
+    )
   }
 
   onSubmitSignIn(value: any) {
@@ -56,15 +54,25 @@ export class AuthComponent implements OnInit {
       switchMap(() => {
         return this.auth.getUserProfile()
       })
-    ).subscribe(res => {
-      this.currentUser = res
-      console.log(this.currentUser)
+    ).subscribe({
+      next: res => {
+        this.auth.currentUser = res
+        this.currentUser = res
+        this.messageService.add({severity:'success', summary: 'Уведомление', detail: 'Пользователь успешно вошел в аккаунт!'});
+
+      },
+      error: err => {
+        console.log(err)
+        this.messageService.add({severity:'error', summary: 'Ошибка', detail: `${err.status}: ${err.statusText}`});
+
+      }
     });
   }
 
   logOut() {
     this.auth.logOutUser().subscribe(res => {
       this.currentUser = res
+      this.auth.currentUser = res
       this.login.reset()
     })
   }

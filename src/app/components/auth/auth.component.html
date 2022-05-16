@@ -1,6 +1,6 @@
 <ng-container *ngIf="openAuth">
   <div class="form">
-    <ng-container *ngIf="!currentUser; else showProfile">
+    <ng-container *ngIf="!currentUser && !this.auth.isLoggedIn(); else showProfile">
       <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitSignIn(login.value)">
       <span class="p-float-label">
         <input id="login-input" type="text" pInputText formControlName="username">
@@ -54,3 +54,4 @@
   <p-button label="Выход" [style]="{width: '100%'}" (click)="logOut()"></p-button>
 <!--  <p-button label="Сбросить пароль" [style]="{width: '100%'}" (click)="resetModal=true"></p-button>-->
 </ng-template>
+<p-toast position="bottom-right"></p-toast>

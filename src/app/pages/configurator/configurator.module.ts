@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {RouterModule} from "@angular/router";
-import {ConfiguratorComponent} from "./configurator.component";
-import {CheckboxModule} from "primeng/checkbox";
-import {CardModule} from "primeng/card";
+import { NgModule }              from '@angular/core';
+import { CommonModule }          from '@angular/common';
+import { RouterModule }          from "@angular/router";
+import { ConfiguratorComponent } from "./configurator.component";
+import { CheckboxModule }        from "primeng/checkbox";
+import { CardModule }            from "primeng/card";
+import { PartCardModule }        from "src/app/components/part-card/part-card.module";
+import { PipesModule }           from "src/app/pipes/pipes.module";
+import { FormsModule }           from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,10 @@ import {CardModule} from "primeng/card";
     ]),
     CheckboxModule,
     CardModule,
+    PartCardModule,
+    PipesModule,
+    FormsModule
   ]
 })
-export class ConfiguratorModule { }
+export class ConfiguratorModule {
+}

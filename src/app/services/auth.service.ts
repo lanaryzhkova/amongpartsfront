@@ -9,6 +9,7 @@ import { Router }                  from "@angular/router";
 export class AuthService {
   endpoint: string = 'https://amongparts.ga/api'
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  currentUser?: any;
 
   constructor(private http: HttpClient, public router: Router) {
   }
@@ -35,7 +36,7 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
-  get isLoggedIn(): boolean {
+  isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return authToken !== null;
   }

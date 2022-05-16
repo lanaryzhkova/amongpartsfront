@@ -1,39 +1,60 @@
 <section class="container">
-<p class="header-text">Подбор компьютера</p>
-<p routerLink="/createbuild" class="hyperlink">Собрать конфигурацию самостоятельно</p>
-  <ng-container >
-<p class="body-text">Выберите параметры, по которым должна совпадать конфигурация:</p>
-  <div class="checkboxes">
-  <div class="field-checkbox">
-    <p-checkbox name="group1" value="New York" id="val1"></p-checkbox>
-    <label for="val1">New York</label>
-  </div>
-  <div class="field-checkbox">
-    <p-checkbox name="group1" value="New York" id="val2"></p-checkbox>
-    <label for="val2">New York</label>
-  </div>
-  <div class="field-checkbox">
-    <p-checkbox name="group1" value="New York" id="val3"></p-checkbox>
-    <label for="val3">New York</label>
-  </div>
-  <div class="field-checkbox">
-    <p-checkbox name="group1" value="New York" id="val4"></p-checkbox>
-    <label for="val4">New York</label>
-  </div>
-  </div>
-  <p class="body-text">Подходящие конфигурации:</p>
-  <div class="cards">
-  <div class="card-build">
-  <p-card>
-    <ng-template pTemplate="header">
-      Конфигурация 1
-    </ng-template>
-    Тут начало списка компонентов или че нибудь
-    <ng-template pTemplate="footer">
-      Примерная стоимость:
-    </ng-template>
-  </p-card>
-  </div>
-  </div>
+  <p class="header-text">Подбор компьютера</p>
+  <p routerLink="/createbuild" class="hyperlink">Собрать конфигурацию самостоятельно</p>
+  <ng-container>
+    <p class="body-text">Выберите параметры, по которым должна совпадать конфигурация:</p>
+    <div class="checkboxes">
+      <div class="field-checkbox">
+        <p-checkbox name="group1" value="Игровой" id="val1" [(ngModel)]="gaming"></p-checkbox>
+        <label for="val1">Игровой</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox name="group1" value="Для дома" id="val2" [(ngModel)]="home"></p-checkbox>
+        <label for="val2">Для дома</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox name="group1" value="Для офиса" id="val3" [(ngModel)]="office"></p-checkbox>
+        <label for="val3">Для офиса</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox name="group1" value="Для дизайна" id="val4" [(ngModel)]="design"></p-checkbox>
+        <label for="val4">Для дизайна</label>
+      </div>
+    </div>
+    <ng-container *ngIf="this.auth.currentUser">
+      <p class="body-text">Мои конфигурации:</p>
+      <div class="cards">
+        <div class="card-build">
+          <ng-container *ngFor="let item of allBuild">
+            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : true">
+              <app-part-card
+                class="card"
+                [name]="item.name"
+                [images]="validImg(item.image)"
+                [description]="item.description ? item.description : 'Нет описания'"
+              ></app-part-card>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <div>
+      <p class="body-text">Подходящие конфигурации:</p>
+      <div class="cards">
+        <div class="card-build">
+          <ng-container *ngFor="let item of allBuild">
+            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : false">
+              <app-part-card
+                class="card"
+                [name]="item.name"
+                [images]="validImg(item.image)"
+                [description]="item.description ? item.description : 'Нет описания'"
+              ></app-part-card>
+            </ng-container>
+
+          </ng-container>
+        </div>
+      </div>
+    </div>
   </ng-container>
 </section>
