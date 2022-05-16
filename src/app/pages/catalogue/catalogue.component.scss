@@ -1,0 +1,38 @@
+.container {
+  max-width: 1280px;
+  padding: 0 16px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 15px;
+
+  .categories{
+    width: 20%;
+    min-width: 250px;
+  }
+
+  p{
+    font-size: 20px;
+  }
+
+  .parts{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 530px)
+{
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .categories{
+
+    margin: 0 auto;
+  }
+}

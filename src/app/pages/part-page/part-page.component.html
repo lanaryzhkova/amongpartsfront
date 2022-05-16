@@ -1,0 +1,38 @@
+<section class="container">
+<ng-container *ngIf="currentProduct">
+  <div class="header-text">
+  <p>{{currentProduct?.name}}</p></div>
+  <div class="product__all">
+      <div class="carousel">
+        <p-carousel [value]="currentProduct?.images">
+          <ng-template let-item pTemplate="item">
+            <img [src]="item" alt="{{currentProduct?.name}}" width="450px">
+          </ng-template>
+        </p-carousel>
+      </div>
+    <div class="product__desc__table">
+      <div>
+      <h3 style="color: #495057; margin-bottom: 8px; margin-left: 14px">Описание:</h3>
+      <p class="product__desc">
+      {{currentProduct?.description}}</p>
+      </div>
+      <div class="table__wrapper">
+        <p-table [value]="currentProduct?.specifications" [scrollable]="true" responsiveLayout="scroll" class="table">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Характеристики</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{product.key}}</td>
+              <td>{{product.value}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+</section>

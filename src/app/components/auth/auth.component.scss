@@ -1,0 +1,41 @@
+.form {
+  border: 1px solid #0288D1;
+  border-radius: 4px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+  min-width: 265px;
+  width: max-content;
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 100;
+}
+
+.form__wrapper__reg{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 100;
+  margin: 22px 15%;
+
+  input{
+    width: 100%;
+  }
+
+  .pass{
+    width: 100%;
+  }
+}
+
+.hyperlink{
+  color: #0288D1;
+  text-decoration: underline;
+  cursor: pointer;
+
+}

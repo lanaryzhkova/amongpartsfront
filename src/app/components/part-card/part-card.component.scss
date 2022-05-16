@@ -1,0 +1,28 @@
+.cards {
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.cards__img {
+}
+
+.cards__body {
+  display: grid;
+  grid-template-rows: max-content max-content;
+}
+
+.cards__name {
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cards__description {
+  font-size: 14px;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+

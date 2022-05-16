@@ -1,0 +1,56 @@
+<section class="catalog">
+  <ng-container *ngIf="currentProducts; else notFound">
+    <div class="catalog__list">
+      <ng-container *ngFor="let item of currentProducts">
+        <app-part-card
+          class="catalog__card"
+          [name]="item?.name"
+          [images]="item?.images"
+          [description]="item?.description"
+          [category] ="selectedId"
+          [link]="item?.link_name"
+          (click)="routingPass(item?.link_name)"
+        ></app-part-card>
+      </ng-container>
+    </div>
+    <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalRecords"
+                 (onPageChange)="paginate($event)"></p-paginator>
+  </ng-container>
+</section>
+
+<ng-template #notFound>
+  <p>Товара из выбранной категории нет.</p>
+</ng-template>
+
+<ng-container *ngIf="product">
+  <p-dialog [header]="product[0].name" [draggable]="false" [(visible)]="displayModal" [modal]="true"
+            [style]="{width: '95vw'}">
+    <div class="modal pr-5">
+      <div class="carousel">
+        <p-carousel [value]="product[0].images">
+          <ng-template let-item pTemplate="item">
+            <img [src]="item" alt="{{product[0].name}}" width="500px">
+          </ng-template>
+        </p-carousel>
+      </div>
+      <p class="modal__desc">{{product[0].description}}</p>
+      <div class="table__wrapper">
+        <p-table [value]="product[0].specifications" [scrollable]="true" scrollHeight="400px" responsiveLayout="scroll" class="table">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Характеристики</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{product.key}}</td>
+              <td>{{product.value}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-dialog>
+</ng-container>
+

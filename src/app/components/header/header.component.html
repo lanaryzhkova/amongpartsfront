@@ -1,19 +1,37 @@
 <section class="wrapper">
   <div class="header">
     <div class="header-left-part">
-      <p class="logo">AmongParts</p>
-      <button type="button">
-        <img class="svg-list" src="/assets/list.svg" alt="каталог товаров">
-        каталог товаров
-      </button>
+      <img class="logo" src="assets/logo_amongparts.svg" routerLink="/" alt="Among Parts">
+      <p-button styleClass="p-button-info p-button-m" label="каталог компонентов" icon="pi pi-bars"
+                (onClick)="catalogLink()"></p-button>
     </div>
     <div class="header-right-part">
-      <form>
-        <input type="text" placeholder="поиск">
-        <button type="button">найти</button>
-      </form>
-      <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
+      <div class="header__search-wrapper">
+        <p-autoComplete [(ngModel)]="text" [suggestions]="currentProducts" (completeMethod)="search($event)"
+                        placeholder="поиск..." field="name" (onSelect)="redirect($event)">
+          <ng-template let-item pTemplate="item">
+            <div class="header__search"> {{item.name.length > 35 ? item.name.slice(0, 35) + '...' : item.name}}</div>
+          </ng-template>
+        </p-autoComplete>
+      </div>
+      <div class="header__auth-wrapper">
+        <button class="header__btn" type="button" (click)="toggleAuthModal();">
+          <img class="svg-profile" src="/assets/profile.svg" alt="профиль">
+        </button>
+        <ng-container
+          *ngIf="openAuth"
+        >
+          <app-auth
+            class="header__auth"
+            [openAuth]="openAuth"
+          ></app-auth>
+        </ng-container>
+      </div>
     </div>
   </div>
 </section>
+<ng-template #notFound>
+  <p>Такого компонента нет в нашем каталоге.</p>
+</ng-template>
+
 

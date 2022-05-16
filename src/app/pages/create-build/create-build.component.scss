@@ -1,0 +1,54 @@
+.container {
+  max-width: 1280px;
+  padding: 0 16px;
+  margin: 0 auto;
+  justify-content: center;
+
+  .header-text {
+    font-size: 30px;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+    margin: 30px 0 25px 0;
+  }
+
+  .topinput{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 32px;
+
+    .drop{
+      margin: 16px 0 0 0;
+      width: 100%;
+    }
+
+    input{
+      margin: 16px 0 0 0;
+      width: 100%;
+    }
+  }
+
+  .bottominput{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-self: center;
+    gap: 16px;
+
+    p{
+      line-height: 40px;
+      text-align: right;
+    }
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+    margin: 32px;
+  }
+}
