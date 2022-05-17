@@ -10,7 +10,12 @@
         <p-autoComplete [(ngModel)]="text" [suggestions]="currentProducts" (completeMethod)="search($event)"
                         placeholder="поиск..." field="name" (onSelect)="redirect($event)">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item.name.length > 35 ? item.name.slice(0, 35) + '...' : item.name}}</div>
+            <div class="header__search">
+              <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item.name.length > 35 ? item.name.slice(0, 35) + '...' : item.name}}
+              </p>
+            </div>
           </ng-template>
         </p-autoComplete>
       </div>
