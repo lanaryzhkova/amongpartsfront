@@ -52,3 +52,12 @@
     margin: 32px;
   }
 }
+.suggestion__text{
+  padding: 0;
+  margin: auto 0;
+}
+.header__search {
+  min-width: 20vw;
+  display: flex;
+  gap: 8px;
+}

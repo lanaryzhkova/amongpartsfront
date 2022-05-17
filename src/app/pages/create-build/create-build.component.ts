@@ -83,91 +83,91 @@ export class CreateBuildComponent implements OnInit {
   searchMotherboard(event: any) {
 
     this.searchProduct.searchProductCategory('motherboard', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchSsd(event: any) {
     this.searchProduct.searchProductCategory('ssd', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchRam(event: any) {
     this.searchProduct.searchProductCategory('ram', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchGpu(event: any) {
     this.searchProduct.searchProductCategory('gpu', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchPsu(event: any) {
     this.searchProduct.searchProductCategory('psu', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchCpu(event: any) {
     this.searchProduct.searchProductCategory('cpu', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchHdd(event: any) {
     this.searchProduct.searchProductCategory('hdd', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchOptical(event: any) {
     this.searchProduct.searchProductCategory('optical', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchPci(event: any) {
     this.searchProduct.searchProductCategory('pci', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchSound(event: any) {
     this.searchProduct.searchProductCategory('sound', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchPaste(event: any) {
     this.searchProduct.searchProductCategory('paste', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchEnclosure(event: any) {
     this.searchProduct.searchProductCategory('enclosure', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchCase(event: any) {
     this.searchProduct.searchProductCategory('case', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchCaseCooling(event: any) {
     this.searchProduct.searchProductCategory('case_cooling', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 
   searchCpuCooling(event: any) {
     this.searchProduct.searchProductCategory('cpu_cooling', event.query, this.limit).subscribe((val) => {
-      this.currentProduct = val;
+      this.currentProduct = val.data;
     })
   }
 }

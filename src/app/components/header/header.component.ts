@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
 
   search(event: any) {
-    this.searchProduct.searchProduct(event.query, 5).subscribe(val => this.currentProducts = val)
+    this.searchProduct.searchProduct(event.query, 5).subscribe(val => this.currentProducts = val.data)
   }
 
   redirect(event: any) {
