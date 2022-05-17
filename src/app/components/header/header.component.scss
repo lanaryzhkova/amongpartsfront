@@ -90,7 +90,8 @@
 
 .header__search {
   min-width: 20vw;
-  overflow-wrap: anywhere;
+  display: flex;
+  gap: 8px;
 }
 
 .header__btn{
@@ -147,4 +148,9 @@
     z-index: 100;
     min-width: 265px;
     width: 20%;
+}
+
+.suggestion__text{
+  padding: 0;
+  margin: auto 0;
 }

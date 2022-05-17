@@ -1,5 +1,5 @@
 <section class="container">
-    <p class="header-text">Создайте свою конфигурацию!</p>
+  <p class="header-text">Создайте свою конфигурацию!</p>
   <div class="topinput">
     <span class="p-float-label">
        <p>Название конфигурации:</p>
@@ -8,7 +8,11 @@
     <span class="p-float-label">
        <p>Тип конфигурации:</p>
         <div class="drop">
-        <p-dropdown [options]="types" [(ngModel)]="textType" placeholder="выбрать" optionLabel="name" [style]="{width: '200px'}" [showClear]="true"></p-dropdown></div>
+        <p-dropdown [options]="types" [(ngModel)]="textType"
+                    placeholder="выбрать"
+                    optionLabel="name"
+                    [style]="{width: '200px'}"
+                    [showClear]="true"></p-dropdown></div>
       </span>
     <span class="p-float-label">
        <p>Описание конфигурации:</p>
@@ -16,7 +20,7 @@
       </span>
   </div>
   <p-divider></p-divider>
-    <div class="bottominput">
+  <div class="bottominput">
      <span class="p-float-label input">
           <p>Выберите материнскую плату:</p>
        <p-autoComplete field="name"
@@ -25,12 +29,16 @@
                        (completeMethod)="searchMotherboard($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"
-                 id="motherboard"> {{item?.name.slice(17)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(17)}}
+              </p>
+                </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите центральный процессор:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textCpu"
@@ -38,11 +46,16 @@
                        (completeMethod)="searchCpu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(9)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(9)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите блок питания:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textPsu"
@@ -50,11 +63,16 @@
                        (completeMethod)="searchPsu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(12)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(12)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите оперативную память:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textRam"
@@ -62,11 +80,16 @@
                        (completeMethod)="searchRam($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(18)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(18)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите видеокарту:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textGpu"
@@ -74,11 +97,16 @@
                        (completeMethod)="searchGpu($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(10)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(10)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите SSD-накопитель:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textSsd"
@@ -86,11 +114,16 @@
                        (completeMethod)="searchSsd($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(3)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(3)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите HDD-накопитель:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textHdd"
@@ -98,11 +131,16 @@
                        (completeMethod)="searchHdd($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(12)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(12)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите звуковую карту:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textSound"
@@ -110,11 +148,16 @@
                        (completeMethod)="searchSound($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(14)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(14)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите охлаждение для процессора:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textCpuCooling"
@@ -122,11 +165,16 @@
                        (completeMethod)="searchCpuCooling($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(18)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(18)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите корпус:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textCase"
@@ -134,11 +182,16 @@
                        (completeMethod)="searchCase($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(6)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(6)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите охлаждение для корпуса:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textCaseCooling"
@@ -146,11 +199,16 @@
                        (completeMethod)="searchCaseCooling($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(18)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(18)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите оптический привод:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textOptical"
@@ -158,11 +216,16 @@
                        (completeMethod)="searchOptical($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(17)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(17)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите PCI-контроллер:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textPci"
@@ -170,11 +233,16 @@
                        (completeMethod)="searchPci($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(14)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(14)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите карман для накопителя:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textEnclosure"
@@ -182,11 +250,16 @@
                        (completeMethod)="searchEnclosure($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(21)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(21)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-      <span class="p-float-label input">
+    <span class="p-float-label input">
        <p>Выберите термопасту:</p>
        <p-autoComplete field="name"
                        [(ngModel)]="textPaste"
@@ -194,11 +267,16 @@
                        (completeMethod)="searchPaste($event)"
                        placeholder="поиск...">
           <ng-template let-item pTemplate="item">
-            <div class="header__search"> {{item?.name.slice(10)}}</div>
+            <div class="header__search">
+               <img [src]="item.images" alt="item.name" style="width: 30px">
+              <p class="suggestion__text">
+                {{item?.name.slice(10)}}
+              </p>
+              </div>
           </ng-template>
         </p-autoComplete>
       </span>
-    </div>
+  </div>
   <div class="button">
     <p-button label="Создать конфигурацию" type="submit" (click)="onSubmitForm()"></p-button>
   </div>
