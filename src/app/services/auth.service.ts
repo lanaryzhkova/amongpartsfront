@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('access_token');
+    let authToken = localStorage.getItem('fastapiusersauth');
     return authToken !== null;
   }
 

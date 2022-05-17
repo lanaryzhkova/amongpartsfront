@@ -19,6 +19,13 @@ export class PartCardComponent {
   }
   @Input() category!: string | null;
   @Input() link?: string;
+
+  ratingText = ' нет'
+  @Input() set rating(value: string){
+    if (value !== null) {
+      this.ratingText = value
+    }
+  }
   refactorDescription = 'Нет описания'
 
   constructor() {

@@ -1,5 +1,10 @@
 <section class="catalog">
   <ng-container *ngIf="currentProducts; else notFound">
+    <p-autoComplete field="name"
+                    [(ngModel)]="text"
+                    (completeMethod)="searchByCategory($event)"
+                    placeholder="поиск...">
+    </p-autoComplete>
     <div class="catalog__list">
       <ng-container *ngFor="let item of currentProducts">
         <app-part-card
@@ -9,6 +14,7 @@
           [description]="item?.description"
           [category] ="selectedId"
           [link]="item?.link_name"
+          [rating] = "item?.rating"
           (click)="routingPass(item?.link_name)"
         ></app-part-card>
       </ng-container>

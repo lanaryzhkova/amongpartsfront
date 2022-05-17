@@ -2,5 +2,8 @@
   <img class="cards__img" alt="Карточка товара {{name}}" [src]="img" width="210" height="210">
   <p class="cards__name">{{name}}</p>
   <p class="cards__description">{{refactorDescription}}</p>
-  <p-button styleClass="p-button-sm" label="Подробнее"></p-button>
+  <div class="card__footer">
+    <p-button styleClass="p-button-sm" label="Подробнее"></p-button>
+      <p><i class="pi pi-star-fill" style="color: gold;"></i>{{ratingText}}</p>
+  </div>
 </section>

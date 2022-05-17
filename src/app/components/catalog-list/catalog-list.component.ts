@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetProductService } from "src/app/services/get-product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {SearchProductService} from "../../services/search-product.service";
 
 @Component({
   selector: 'catalog-list',
@@ -17,8 +18,9 @@ export class CatalogListComponent implements OnInit {
   first: number = 0;
   displayModal = false;
   category?: string;
+  text?: string;
 
-  constructor(private getProducts: GetProductService, private route: ActivatedRoute, private router: Router) {
+  constructor(private getProducts: GetProductService, private route: ActivatedRoute, private router: Router, private searchProduct: SearchProductService) {
   }
 
   ngOnInit(): void {
@@ -145,4 +147,11 @@ export class CatalogListComponent implements OnInit {
       return obj.name === evt
     })
   }
+
+  searchByCategory(event: any) {
+    this.searchProduct.searchProductCategory(this.selectedId !, event.query, this.limit).subscribe((val) => {
+      this.currentProducts = val;
+
+      }
+    )}
 }
