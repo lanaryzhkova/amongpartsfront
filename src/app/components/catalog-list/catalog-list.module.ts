@@ -9,7 +9,9 @@ import { DialogModule }         from "primeng/dialog";
 import {GalleriaModule}         from "primeng/galleria";
 import {CarouselModule}         from "primeng/carousel";
 import { TableModule }          from "primeng/table";
-import {AutoCompleteModule} from "primeng/autocomplete";
+import {AutoCompleteModule}     from "primeng/autocomplete";
+import { InputTextModule }      from "primeng/inputtext";
+import { SelectButtonModule }   from "primeng/selectbutton";
 
 
 
@@ -35,6 +37,8 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     CarouselModule,
     TableModule,
     AutoCompleteModule,
+    InputTextModule,
+    SelectButtonModule,
   ]
 })
 export class CatalogListModule { }

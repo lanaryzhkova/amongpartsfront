@@ -4,6 +4,7 @@
   <p class="cards__description">{{refactorDescription}}</p>
   <div class="card__footer">
     <p-button styleClass="p-button-sm" label="Подробнее"></p-button>
-      <p><i class="pi pi-star-fill" style="color: gold;"></i>{{ratingText}}</p>
+    <p>{{ratingText}}</p>
+    <p-rating [(ngModel)]="ratingText" [readonly]="true" [stars]="5" [cancel]="false"  [style]="{width:'80px'}" ></p-rating>
   </div>
 </section>

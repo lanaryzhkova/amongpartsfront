@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { GetProductService } from "src/app/services/get-product.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SearchProductService} from "../../services/search-product.service";
+import { Component, OnInit }      from '@angular/core';
+import { GetProductService }      from "src/app/services/get-product.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { SearchProductService }   from "../../services/search-product.service";
 
 @Component({
   selector: 'catalog-list',
@@ -10,15 +10,20 @@ import {SearchProductService} from "../../services/search-product.service";
 })
 export class CatalogListComponent implements OnInit {
   currentProducts: any;
+  searchResult: any;
   product: any;
   skip = 0;
   limit = 12;
   totalRecords: any = 0;
-  selectedId!: string | null;
+  selectedId!: any;
   first: number = 0;
   displayModal = false;
   category?: string;
   text?: string;
+  searchString!: string;
+  totalResults: any = 0;
+  value1?: string = 'up';
+  stateOptions: any[] = [{label: "По возрастанию", value: 1}, {label: "По убыванию", value: -1}];
 
   constructor(private getProducts: GetProductService, private route: ActivatedRoute, private router: Router, private searchProduct: SearchProductService) {
   }
@@ -31,102 +36,22 @@ export class CatalogListComponent implements OnInit {
       this.getProduct()
     });
   }
+
   routingPass(link: any, category = this.selectedId) {
     this.router.navigate([`parts/${this.selectedId}/${link}`]);
   }
 
-  getProduct(): void {
-    switch (this.selectedId) {
-      case 'motherboard':
-        this.getProducts.getMotherboard(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'ssd':
-        this.getProducts.getSsd(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'ram':
-        this.getProducts.getRam(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'gpu':
-        this.getProducts.getGpu(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'psu':
-        this.getProducts.getPsu(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'cpu':
-        this.getProducts.getCpu(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'hdd':
-        this.getProducts.getHdd(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'optical':
-        this.getProducts.getOptical(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'pci':
-        this.getProducts.getPci(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'sound':
-        this.getProducts.getSound(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'paste':
-        this.getProducts.getThermopaste(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'enclosure':
-        this.getProducts.getDiskEnclosure(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'case':
-        this.getProducts.getCase(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'case_cooling':
-        this.getProducts.getCaseCooling(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
-      case 'cpu_cooling':
-        this.getProducts.getCpuCooling(this.skip, this.limit).subscribe((val) => {
-          this.currentProducts = val.data
-          this.totalRecords = val.amount
-        })
-        break;
+  getProduct(direction?: number): void {
+    if (direction == -1 || direction == 1) {
+      this.getProducts.getProduct(this.selectedId, this.skip, this.limit, 'rating', direction).subscribe((val) => {
+        this.currentProducts = val.data
+        this.totalRecords = val.amount
+      })
+    } else {
+      this.getProducts.getProduct(this.selectedId, this.skip, this.limit).subscribe((val) => {
+        this.currentProducts = val.data
+        this.totalRecords = val.amount
+      })
     }
   }
 
@@ -134,6 +59,12 @@ export class CatalogListComponent implements OnInit {
     this.first = evt.first;
     this.skip = this.limit * evt.page;
     this.getProduct();
+  }
+
+  paginateSearch(evt: any) {
+    this.first = evt.first;
+    this.skip = this.limit * evt.page;
+    this.searchByCategory();
   }
 
   refresh() {
@@ -148,10 +79,17 @@ export class CatalogListComponent implements OnInit {
     })
   }
 
-  searchByCategory(event: any) {
-    this.searchProduct.searchProductCategory(this.selectedId !, event.query, this.limit).subscribe((val) => {
-      this.currentProducts = val;
+  searchByCategory() {
+    if (this.searchString.length > 0) {
+      this.searchProduct.searchProductCategory(this.selectedId !, this.searchString, this.limit).subscribe((val) => {
+          this.searchResult = val;
+          this.totalResults = val.length;
+        }
+      )
+    }
+  }
 
-      }
-    )}
+  check(event: any) {
+    this.getProduct(event.value)
+  }
 }
