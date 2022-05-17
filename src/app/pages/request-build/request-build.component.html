@@ -21,11 +21,16 @@
     </p>
     <p-inputMask  mask="+7-999-999-99-99" [style]="{width: '25%'}"></p-inputMask>
   </div>
+  <span class="p-float-label">
+       <p class="body-text">Тип конфигурации:</p>
+        <div class="drop">
+        <p-dropdown [options]="types" placeholder="выбрать" optionLabel="name" [style]="{width: '200px'}" [showClear]="true"></p-dropdown></div>
+      </span>
   <div class="field">
   <p class="body-text">
     Опишите пожелания по составу конфигурации и производительности:
   </p>
-  <textarea pInputTextarea [style]="{width: '30vw', height:'10vw'}"></textarea>
+  <textarea pInputTextarea [style]="{minWidth: '18vw', minHeight:'5vh', maxWidth:'30vw', maxHeight: '20vh'}"></textarea>
   </div>
   <div class="field">
   <p class="body-text">
@@ -33,6 +38,7 @@
   </p>
   <input type="text" pInputText>
   </div>
-  <p-button  label="Подать заявку"></p-button>
+  <p-button  label="Подать заявку" type="submit" (click)="submitRequest()"></p-button>
   <p></p>
 </section>
+<p-toast position="bottom-right"></p-toast>
