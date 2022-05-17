@@ -78,6 +78,24 @@ export class CreateBuildComponent implements OnInit {
       error: err => this.messageService.add({severity:'error', summary: 'Ошибка', detail: `${err.status}: ${err.statusText}`}),
       complete: () => this.messageService.add({severity:'success', summary: 'Успех', detail: 'Сборка собрана'})
     });
+    this.textName = null;
+    this.textType = null;
+    this.textDesc = null;
+    this.textMotherboard = null;
+    this.textCpu = null;
+    this.textRam = null;
+    this.textSsd = null;
+    this.textHdd = null;
+    this.textGpu = null;
+    this.textPsu = null;
+    this.textCase = null;
+    this.textSound = null;
+    this.textCpuCooling = null;
+    this.textCaseCooling = null;
+    this.textEnclosure = null;
+    this.textPci = null;
+    this.textOptical = null;
+    this.textPaste = null;
   }
 
   searchMotherboard(event: any) {
