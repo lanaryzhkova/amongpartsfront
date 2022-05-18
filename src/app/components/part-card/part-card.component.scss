@@ -25,7 +25,14 @@
 .cards__description {
   font-size: 14px;
   padding: 0;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+.card__footer{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px;
 }
 
 

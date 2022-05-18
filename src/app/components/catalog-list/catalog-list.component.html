@@ -1,22 +1,53 @@
 <section class="catalog">
-  <ng-container *ngIf="currentProducts; else notFound">
-    <div class="catalog__list">
-      <ng-container *ngFor="let item of currentProducts">
-        <app-part-card
-          class="catalog__card"
-          [name]="item?.name"
-          [images]="item?.images[0]"
-          [description]="item?.description"
-          [category] ="selectedId"
-          [link]="item?.link_name"
-          (click)="routingPass(item?.link_name)"
-        ></app-part-card>
-      </ng-container>
+  <div class="catalog__top">
+ <span class="p-float-label">
+        <input class="searchInput" [(ngModel)]="searchString" pInputText placeholder="поиск..."
+               (ngModelChange)="searchByCategory()">
+      </span>
+    <div class="sort">
+      <p>Сортировать по рейтингу:</p>
+      <p-selectButton [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"
+                      (onChange)="check($event)"></p-selectButton>
     </div>
-    <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalRecords"
-                 (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+  <ng-container *ngIf="currentProducts; else notFound">
+    <ng-container *ngIf="!searchString; else searchResults">
+      <div class="catalog__list">
+        <ng-container *ngFor="let item of currentProducts">
+          <app-part-card
+            class="catalog__card"
+            [name]="item?.name"
+            [images]="item?.images[0]"
+            [description]="item?.description"
+            [category]="selectedId"
+            [link]="item?.link_name"
+            [rating]="item?.rating"
+            (click)="routingPass(item?.link_name)"
+          ></app-part-card>
+        </ng-container>
+      </div>
+      <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalRecords"
+                   (onPageChange)="paginate($event)"></p-paginator>
+    </ng-container>
   </ng-container>
 </section>
+
+<ng-template #searchResults>
+  <div class="catalog__list">
+    <ng-container *ngFor="let item of searchResult">
+      <app-part-card
+        class="catalog__card"
+        [name]="item?.name"
+        [images]="item?.images"
+        [description]="item?.description"
+        [category]="selectedId"
+        (click)="routingPass(item?.name)"
+      ></app-part-card>
+    </ng-container>
+  </div>
+  <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalResults"
+               (onPageChange)="paginateSearch($event)"></p-paginator>
+</ng-template>
 
 <ng-template #notFound>
   <p>Товара из выбранной категории нет.</p>
@@ -35,7 +66,8 @@
       </div>
       <p class="modal__desc">{{product[0].description}}</p>
       <div class="table__wrapper">
-        <p-table [value]="product[0].specifications" [scrollable]="true" scrollHeight="400px" responsiveLayout="scroll" class="table">
+        <p-table [value]="product[0].specifications" [scrollable]="true" scrollHeight="400px" responsiveLayout="scroll"
+                 class="table">
           <ng-template pTemplate="header">
             <tr>
               <th>Характеристики</th>

@@ -12,7 +12,7 @@ export class GetProductService {
   ) {
   }
 
-  getMotherboard(skip?: number, limit?: number): Observable<any> {
+  getProduct(category: string, skip?: number, limit?: number, sort?: string, direction?: number): Observable<any> {
     let params: HttpParams = new HttpParams();
     if (limit) {
       params = params.set('limit', limit);
@@ -20,8 +20,14 @@ export class GetProductService {
     if (skip) {
       params = params.set('skip', skip);
     }
+    if (sort) {
+      params = params.set('sort', sort);
+    }
+    if (direction) {
+      params = params.set('direction', direction);
+    }
 
-    return this.http.get('https://amongparts.ga/api/motherboard/all', {params})
+    return this.http.get(`https://amongparts.ga/api/${category}/all`, {params})
   }
 
   getSsd(skip?: number, limit?: number): Observable<any> {

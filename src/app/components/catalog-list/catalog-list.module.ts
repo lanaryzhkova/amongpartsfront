@@ -9,6 +9,9 @@ import { DialogModule }         from "primeng/dialog";
 import {GalleriaModule}         from "primeng/galleria";
 import {CarouselModule}         from "primeng/carousel";
 import { TableModule }          from "primeng/table";
+import {AutoCompleteModule}     from "primeng/autocomplete";
+import { InputTextModule }      from "primeng/inputtext";
+import { SelectButtonModule }   from "primeng/selectbutton";
 
 
 
@@ -19,20 +22,23 @@ import { TableModule }          from "primeng/table";
   exports: [
     CatalogListComponent
   ],
-    imports: [
-        CommonModule,
-        PaginatorModule,
-        PartCardModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: CatalogueComponent,
-            },
-        ]),
-        DialogModule,
-        GalleriaModule,
-        CarouselModule,
-        TableModule,
-    ]
+  imports: [
+    CommonModule,
+    PaginatorModule,
+    PartCardModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: CatalogueComponent,
+      },
+    ]),
+    DialogModule,
+    GalleriaModule,
+    CarouselModule,
+    TableModule,
+    AutoCompleteModule,
+    InputTextModule,
+    SelectButtonModule,
+  ]
 })
 export class CatalogListModule { }
