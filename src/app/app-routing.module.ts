@@ -71,6 +71,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'build/:id',
+    loadChildren: () =>
+      import('./pages/build-page/build-page.module').then(
+        (m) => m.BuildPageModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

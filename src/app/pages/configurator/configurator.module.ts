@@ -7,6 +7,7 @@ import { CardModule }            from "primeng/card";
 import { PartCardModule }        from "src/app/components/part-card/part-card.module";
 import { PipesModule }           from "src/app/pipes/pipes.module";
 import { FormsModule }           from "@angular/forms";
+import {BuildCardModule} from "../../components/build-card/build-card.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule }           from "@angular/forms";
     CardModule,
     PartCardModule,
     PipesModule,
-    FormsModule
+    FormsModule,
+    BuildCardModule
   ]
 })
 export class ConfiguratorModule {

@@ -20,19 +20,28 @@
         <p-checkbox name="group1" value="Для дизайна" id="val4" [(ngModel)]="design"></p-checkbox>
         <label for="val4">Для дизайна</label>
       </div>
+      <div class="field-checkbox">
+        <p-checkbox name="group1" value="Для дизайна" id="val5" [(ngModel)]="video"></p-checkbox>
+        <label for="val5">Для видеомонтажа</label>
+      </div>
     </div>
     <ng-container *ngIf="this.auth.currentUser">
       <p class="body-text">Мои конфигурации:</p>
       <div class="cards">
         <div class="card-build">
           <ng-container *ngFor="let item of allBuild">
-            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : true">
-              <app-part-card
-                class="card"
+            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : video: true">
+              <app-build-card
                 [name]="item.name"
-                [images]="validImg(item.image)"
+                [type]="item.type"
                 [description]="item.description ? item.description : 'Нет описания'"
-              ></app-part-card>
+                [image]="validImg(item.image)"
+                [username]="item.username"
+                [specifications]="item.specifications"
+                [link_name]="item.link_name">
+<!--                (click)="routingPass(item?.link_name)"-->
+
+              </app-build-card>
             </ng-container>
           </ng-container>
         </div>
@@ -43,15 +52,21 @@
       <div class="cards">
         <div class="card-build">
           <ng-container *ngFor="let item of allBuild">
-            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : false">
-              <app-part-card
-                class="card"
-                [name]="item.name"
-                [images]="validImg(item.image)"
-                [description]="item.description ? item.description : 'Нет описания'"
-              ></app-part-card>
-            </ng-container>
+            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : video : false">
+              <div class="">
+                <app-build-card
+                  [name]="item.name"
+                  [type]="item.type"
+                  [description]="item.description ? item.description : 'Нет описания'"
+                  [image]="validImg(item.image)"
+                  [username]="item.username"
+                  [specifications]="item.specifications"
+                  [link_name]="item.link_name">
+                  (click)="routingPass(item?.link_name)">
 
+                </app-build-card>
+              </div>
+            </ng-container>
           </ng-container>
         </div>
       </div>

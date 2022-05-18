@@ -11,10 +11,12 @@ import { CatalogueModule }  from "./pages/catalogue/catalogue.module";
 import { GuideModule }      from "./pages/guide/guide.module";
 import { AuthModule }       from "./components/auth/auth.module";
 import { CookieService }    from "ngx-cookie-service";
+import { MyBuildsComponent } from './pages/my-builds/my-builds.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MyBuildsComponent,
   ],
   imports: [
     BrowserModule,

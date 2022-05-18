@@ -22,4 +22,10 @@ export class GetBuildService {
     return this.http.get('https://amongparts.ga/api/build/all', {params})
   }
 
+  getBuildName(name: string): Observable<any> {
+    let params: HttpParams = new HttpParams();
+
+    return this.http.get(`https://amongparts.ga/api/build/get/${name}`, {params})
+  }
+
 }

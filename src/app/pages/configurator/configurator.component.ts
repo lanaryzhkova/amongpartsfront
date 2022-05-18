@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetBuildService }   from "src/app/services/get-build.service";
 import { AuthService }       from "src/app/services/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-configurator',
@@ -9,25 +10,26 @@ import { AuthService }       from "src/app/services/auth.service";
 })
 export class ConfiguratorComponent implements OnInit {
   allBuild?: any[];
+  countBuild?: number;
   gaming: string[] = [];
   home: string[] = [];
   design: string[] = [];
   office: string[] = [];
+  video: string[] = [];
 
-  constructor(private getBuildService: GetBuildService, public auth: AuthService) { }
+  constructor(private getBuildService: GetBuildService, public auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.getBuildService.getBuildAll(0,20).subscribe({
       next: value => {
         this.allBuild = value.data
-        console.log(value)
+        this.countBuild = value.amount
       },
       error: err => {
         console.warn(err)
       }
     })
   }
-
 
   validImg(image: any) {
     if (/^(ftp|http|https):\/\/[^ "]+$/.test(image)) {
@@ -36,4 +38,9 @@ export class ConfiguratorComponent implements OnInit {
       return undefined
     }
   }
+
+  routingPass(link: any) {
+    this.router.navigate([`build/${link}`]);
+  }
+
 }
