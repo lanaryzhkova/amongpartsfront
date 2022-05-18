@@ -3,8 +3,9 @@
   <p class="cards__name">{{name}}</p>
   <p class="cards__description">{{refactorDescription}}</p>
   <div class="card__footer">
-    <p-button styleClass="p-button-sm" label="Подробнее"></p-button>
-    <p>{{ratingText}}</p>
-    <p-rating [(ngModel)]="ratingText" [readonly]="true" [stars]="5" [cancel]="false"  [style]="{width:'80px'}" ></p-rating>
+    <p-rating [(ngModel)]="ratingText" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+    <p>({{ratingText}})</p>
   </div>
+  <p-button styleClass="p-button-sm" label="Подробнее"></p-button>
+
 </section>

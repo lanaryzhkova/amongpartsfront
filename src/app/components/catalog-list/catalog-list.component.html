@@ -1,9 +1,15 @@
 <section class="catalog">
+  <div class="catalog__top">
  <span class="p-float-label">
-        <input class="searchInput" [(ngModel)]="searchString" pInputText placeholder="поиск..." (ngModelChange)="searchByCategory()">
+        <input class="searchInput" [(ngModel)]="searchString" pInputText placeholder="поиск..."
+               (ngModelChange)="searchByCategory()">
       </span>
-  <p>Сортировать по рейтингу:</p>
-  <p-selectButton [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value" (onChange)="check($event)"></p-selectButton>
+    <div class="sort">
+      <p>Сортировать по рейтингу:</p>
+      <p-selectButton [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"
+                      (onChange)="check($event)"></p-selectButton>
+    </div>
+  </div>
   <ng-container *ngIf="currentProducts; else notFound">
     <ng-container *ngIf="!searchString; else searchResults">
       <div class="catalog__list">

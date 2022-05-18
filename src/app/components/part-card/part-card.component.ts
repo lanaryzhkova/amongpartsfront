@@ -20,8 +20,8 @@ export class PartCardComponent {
   @Input() category!: string | null;
   @Input() link?: string;
 
-  ratingText = ' нет'
-  @Input() set rating(value: string){
+  ratingText = 0;
+  @Input() set rating(value: number){
     if (value !== null) {
       this.ratingText = value
     }
