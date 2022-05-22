@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {Component, Input, OnInit}  from '@angular/core';
+import { Subscription, switchMap } from "rxjs";
+import {ActivatedRoute}            from "@angular/router";
 import {GetBuildService} from "../../services/get-build.service";
 
 @Component({
@@ -33,11 +33,13 @@ export class BuildPageComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private getBuild: GetBuildService) { }
 
   ngOnInit(): void {
-    this.subscription = this.activatedRoute.params.subscribe((params) => {
-      this.id = params['id'];
-      this.getBuild.getBuildName(this.id).subscribe((val) => {
-        this.currentBuild = val;
-      });
+    this.subscription = this.activatedRoute.params.pipe(
+      switchMap((params) => {
+        this.id = params['id'];
+         return this.getBuild.getBuildName(this.id)
+      })
+    ).subscribe((val) => {
+      this.currentBuild = val;
     });
   }
 

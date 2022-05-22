@@ -1,180 +1,181 @@
 <section class="container">
   <div class="header-text">
-  <p>{{currentBuild?.name}}</p>
+    <p>{{currentBuild?.name}}</p>
   </div>
   <div>
-  <div class="build__image">
-    <img src="{{currentBuild?.image}}" alt="{{currentBuild?.name}}">
-  </div>
+    <div class="build__image">
+<!--      <img src="{{currentBuild?.image}}" alt="{{currentBuild?.name}}">-->
+    </div>
   </div>
   <div>
-  <p class="build__description">{{currentBuild?.description}}</p>
-  <p>{{currentBuild?.specifications.motherboard?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.motherboard?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
+    <p class="build__description">{{currentBuild?.description}}</p>
+    <p>{{currentBuild?.specifications.motherboard?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.motherboard?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.cpu?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.cpu?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.ram?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.ram?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.ssd?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.ssd?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.gpu?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.gpu?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.psu?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.psu?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.case?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.case?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.sound?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.sound?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.cpu_cooling?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.cpu_cooling?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.case_cooling?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.case_cooling?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.enclosure?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.enclosure?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.pci?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.pci?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.optical?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.optical?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
+    <p>{{currentBuild?.specifications.paste?.name}}</p>
+    <div *ngIf="isShow">
+      <ng-container *ngFor="let item of currentBuild?.specifications?.paste?.specifications">
+        <table>
+          <tr>
+            <td>{{item.key}}:</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </div>
+    <button type="button" (click)="toggleDiv()"></button>
   </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.cpu?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.cpu?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.ram?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.ram?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.ssd?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.ssd?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.gpu?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.gpu?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.psu?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.psu?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.case?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.case?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.sound?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.sound?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.cpu_cooling?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.cpu_cooling?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.case_cooling?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.case_cooling?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.enclosure?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.enclosure?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.pci?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.pci?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.optical?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.optical?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button>
-  <p>{{currentBuild?.specifications.paste?.name}}</p>
-  <div *ngIf="isShow">
-    <ng-container *ngFor="let item of currentBuild?.specifications?.paste?.specifications">
-      <table>
-        <tr>
-          <td>{{item.key}}:</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
-  <button type="button" (click)="toggleDiv()"></button></div>
 </section>
