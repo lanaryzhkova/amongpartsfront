@@ -48,6 +48,13 @@ export class AuthService {
       })
   }
 
+  getUserBuilds(): Observable<any> {
+    return this.http.get(`${this.endpoint}/users/builds`,
+      {
+        withCredentials: true,
+      })
+  }
+
   logOutUser(): Observable<any> {
     return this.http.post(`${this.endpoint}/auth/jwt/logout`, null,
       {

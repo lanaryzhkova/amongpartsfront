@@ -15,13 +15,26 @@ export class BuildPageComponent implements OnInit {
   category?: string;
   currentBuild: any;
   private subscription?: Subscription;
-  isShow = false;
+  isShow = true;
+  // isShowMotherboard = false;
+  // isShowCpu = false;
+  // isShowRam = false;
+  // isShowSsd = false;
+  // isShowHdd = false;
+  // isShowPsu = false;
+  // isShowSound= false;
+  // isShowCpuCooling= false;
+  // isShowCaseCooling= false;
+  // isShowEnclosure= false;
+  // isShowPci= false;
+  // isShowOptical= false;
+  // isShowPaste= false;
 
   constructor(private activatedRoute: ActivatedRoute, private getBuild: GetBuildService) { }
 
   ngOnInit(): void {
     this.subscription = this.activatedRoute.params.subscribe((params) => {
-      this.id = params['id']
+      this.id = params['id'];
       this.getBuild.getBuildName(this.id).subscribe((val) => {
         this.currentBuild = val;
       });

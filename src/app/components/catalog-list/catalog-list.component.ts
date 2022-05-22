@@ -37,7 +37,7 @@ export class CatalogListComponent implements OnInit {
     });
   }
 
-  routingPass(link: any, category = this.selectedId) {
+  routingPass(link: any) {
     this.router.navigate([`parts/${this.selectedId}/${link}`]);
   }
 
@@ -81,15 +81,16 @@ export class CatalogListComponent implements OnInit {
 
   searchByCategory() {
     if (this.searchString.length > 0) {
-      this.searchProduct.searchProductCategory(this.selectedId !, this.searchString, this.limit).subscribe((val) => {
-          this.searchResult = val;
-          this.totalResults = val.length;
+      this.searchProduct.searchProductCategory(this.selectedId !, this.searchString, this.limit, this.skip).subscribe((val) => {
+          this.searchResult = val.data;
+          this.totalResults = val.amount;
         }
       )
     }
   }
 
   check(event: any) {
+    this.searchString = '';
     this.getProduct(event.value)
   }
 }

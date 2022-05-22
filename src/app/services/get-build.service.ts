@@ -22,10 +22,24 @@ export class GetBuildService {
     return this.http.get('https://amongparts.ga/api/build/all', {params})
   }
 
-  getBuildName(name: string): Observable<any> {
+  getBuildName(name?: string): Observable<any> {
     let params: HttpParams = new HttpParams();
+    if (name) {
+      params = params.set('name', name);
+    }
 
-    return this.http.get(`https://amongparts.ga/api/build/get/${name}`, {params})
+    return this.http.get(`https://amongparts.ga/api/build/get/` + name, {params})
+  }
+
+  likeBuild(name: any): Observable<any>{
+    let params: HttpParams = new HttpParams();
+    if (name) {
+      params = params.set('name', name);
+    }
+    return this.http.post(`https://amongparts.ga/api/build/like/`, `name: ${name}`,
+      { params,
+        withCredentials: true
+      })
   }
 
 }

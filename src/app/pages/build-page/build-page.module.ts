@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BuildPageComponent} from "./build-page.component";
 import {RouterModule} from "@angular/router";
 import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [BuildPageComponent],
@@ -16,6 +17,7 @@ import {TableModule} from "primeng/table";
       },
     ]),
     TableModule,
+    ButtonModule,
   ]
 })
 export class BuildPageModule { }

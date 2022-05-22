@@ -42,7 +42,6 @@ export class AuthComponent implements OnInit {
     this.auth.registry(value).subscribe(
       {
         next: (e) => {
-          console.log(e)
           this.messageService.add({severity:'success', summary: 'Уведомление', detail: 'Пользователь успешно зарегистрирован!'});
         }
       }

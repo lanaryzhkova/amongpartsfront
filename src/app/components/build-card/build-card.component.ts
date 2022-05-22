@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router }                                         from "@angular/router";
+import { EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-build-card',
@@ -25,9 +27,8 @@ export class BuildCardComponent implements OnInit {
 
   @Output() routing = new EventEmitter();
 
-  navigate(value: string) {
-    this.routing.emit(value);
-    // this.router.navigate([`build/${link}`]);
+  navigate() {
+    this.routing.emit();
   }
 
   @Output() liking = new EventEmitter();
@@ -38,11 +39,9 @@ export class BuildCardComponent implements OnInit {
 
   @Output() opening = new EventEmitter();
 
-  open() {
-    this.opening.emit();
+  open(value?: string) {
+    this.opening.emit(value);
   }
-
-  isShow = false;
 
   constructor(private router: Router) {
   }

@@ -78,6 +78,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'mybuilds',
+    loadChildren: () =>
+      import('./pages/my-builds/my-builds.module').then(
+        (m) => m.MyBuildsModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

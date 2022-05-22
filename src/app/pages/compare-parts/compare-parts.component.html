@@ -8,10 +8,10 @@
       [multiple]="true"
       [suggestions]="filteredParts"
       field="name">
+
     </p-autoComplete>
   </span>
-  <ng-container *ngIf="selectedParts; else emptyParts">
-
+  <ng-container *ngIf="selectedParts; else emptyParts" >
     <p-table [value]="arr" responsiveLayout="scroll" styleClass="mt-5 p-datatable-striped p-datatable-gridlines">
       <ng-template pTemplate="header">
         <tr>

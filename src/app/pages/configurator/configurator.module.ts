@@ -8,6 +8,7 @@ import { PartCardModule }        from "src/app/components/part-card/part-card.mo
 import { PipesModule }           from "src/app/pipes/pipes.module";
 import { FormsModule }           from "@angular/forms";
 import {BuildCardModule} from "../../components/build-card/build-card.module";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {BuildCardModule} from "../../components/build-card/build-card.module";
     PartCardModule,
     PipesModule,
     FormsModule,
-    BuildCardModule
+    BuildCardModule,
+    ToastModule
   ]
 })
 export class ConfiguratorModule {

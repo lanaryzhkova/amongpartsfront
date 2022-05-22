@@ -23,7 +23,7 @@ export class ComparePartsComponent implements OnInit {
   }
 
   filterParts(e: any) {
-    this.searchProduct.searchProduct(e.query, 20).subscribe(val => this.filteredParts = val)
+    this.searchProduct.searchProduct(e.query, 20).subscribe(val => this.filteredParts = val.data)
   }
 
   getPart(e: any) {

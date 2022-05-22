@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { GetBuildService }   from "src/app/services/get-build.service";
 import { AuthService }       from "src/app/services/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-configurator',
   templateUrl: './configurator.component.html',
-  styleUrls: ['./configurator.component.scss']
+  styleUrls: ['./configurator.component.scss'],
+  providers: [MessageService]
+
 })
 export class ConfiguratorComponent implements OnInit {
   allBuild?: any[];
@@ -17,7 +20,7 @@ export class ConfiguratorComponent implements OnInit {
   office: string[] = [];
   video: string[] = [];
 
-  constructor(private getBuildService: GetBuildService, public auth: AuthService, private router: Router) { }
+  constructor(private getBuildService: GetBuildService, public auth: AuthService, private router: Router, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getBuildService.getBuildAll(0,20).subscribe({
@@ -41,6 +44,24 @@ export class ConfiguratorComponent implements OnInit {
 
   routingPass(link: any) {
     this.router.navigate([`build/${link}`]);
+  }
+
+  like(link: any){
+    this.getBuildService.likeBuild(link).subscribe(
+      {
+        next: res => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Уведомление',
+            detail: 'Конфигурация добавлена в "Сохранённые конфигурации"'
+          });
+        },
+        error: err => {
+          this.messageService.add({severity: 'error', summary: 'Ошибка', detail: `${err.status}: ${err.statusText}`});
+        }
+      }
+
+    );
   }
 
 }

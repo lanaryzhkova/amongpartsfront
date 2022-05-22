@@ -25,35 +25,12 @@
         <label for="val5">Для видеомонтажа</label>
       </div>
     </div>
-    <ng-container *ngIf="this.auth.currentUser">
-      <p class="body-text">Мои конфигурации:</p>
-      <div class="cards">
-        <div class="card-build">
-          <ng-container *ngFor="let item of allBuild">
-            <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : video: true">
-              <app-build-card
-                [name]="item.name"
-                [type]="item.type"
-                [description]="item.description ? item.description : 'Нет описания'"
-                [image]="validImg(item.image)"
-                [username]="item.username"
-                [specifications]="item.specifications"
-                [link_name]="item.link_name">
-<!--                (click)="routingPass(item?.link_name)"-->
 
-              </app-build-card>
-            </ng-container>
-          </ng-container>
-        </div>
-      </div>
-    </ng-container>
-    <div>
       <p class="body-text">Подходящие конфигурации:</p>
       <div class="cards">
         <div class="card-build">
           <ng-container *ngFor="let item of allBuild">
             <ng-container *ngIf="item | typeCheckbox: gaming : home : office : design : video : false">
-              <div class="">
                 <app-build-card
                   [name]="item.name"
                   [type]="item.type"
@@ -61,15 +38,20 @@
                   [image]="validImg(item.image)"
                   [username]="item.username"
                   [specifications]="item.specifications"
-                  [link_name]="item.link_name">
-                  (click)="routingPass(item?.link_name)">
-
+                  [link_name]="item.link_name"
+                  (routing)="routingPass(item?.link_name)"
+                  (liking)="like(item?.link_name)">
                 </app-build-card>
-              </div>
             </ng-container>
           </ng-container>
         </div>
       </div>
-    </div>
   </ng-container>
 </section>
+
+<ng-template #notBuilds>
+  Подходящих конфигураций нет
+</ng-template>
+
+<p-toast position="bottom-right"></p-toast>
+
