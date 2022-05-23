@@ -9,6 +9,8 @@ import { PipesModule }           from "src/app/pipes/pipes.module";
 import { FormsModule }           from "@angular/forms";
 import {BuildCardModule} from "../../components/build-card/build-card.module";
 import {ToastModule} from "primeng/toast";
+import {PaginatorModule} from "primeng/paginator";
+import {TabViewModule} from "primeng/tabview";
 
 @NgModule({
   declarations: [
@@ -17,22 +19,24 @@ import {ToastModule} from "primeng/toast";
   exports: [
     ConfiguratorComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ConfiguratorComponent,
-      },
-    ]),
-    CheckboxModule,
-    CardModule,
-    PartCardModule,
-    PipesModule,
-    FormsModule,
-    BuildCardModule,
-    ToastModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: ConfiguratorComponent,
+            },
+        ]),
+        CheckboxModule,
+        CardModule,
+        PartCardModule,
+        PipesModule,
+        FormsModule,
+        BuildCardModule,
+        ToastModule,
+        PaginatorModule,
+        TabViewModule
+    ]
 })
 export class ConfiguratorModule {
 }

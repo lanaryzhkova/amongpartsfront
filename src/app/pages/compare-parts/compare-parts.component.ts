@@ -1,11 +1,13 @@
 import { Component, OnInit }    from '@angular/core';
 import { SearchProductService } from "src/app/services/search-product.service";
 import { GetProductService }    from "src/app/services/get-product.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-compare-parts',
   templateUrl: './compare-parts.component.html',
-  styleUrls: ['./compare-parts.component.scss']
+  styleUrls: ['./compare-parts.component.scss'],
+  providers: [MessageService]
 })
 export class ComparePartsComponent implements OnInit {
   selectedParts: any;
@@ -16,7 +18,7 @@ export class ComparePartsComponent implements OnInit {
   tableSelectedProduct!: any[];
 
   constructor(private searchProduct: SearchProductService,
-              private getProduct: GetProductService) {
+              private getProduct: GetProductService, private messageService: MessageService) {
   }
 
   ngOnInit(): void {
@@ -28,21 +30,7 @@ export class ComparePartsComponent implements OnInit {
 
   getPart(e: any) {
     if (this.selectedParts[0].category !== this.selectedParts[this.selectedParts.length - 1].category) {
-      alert(
-        `
-          Ты решил(а) сравнить ${this.selectedParts[0].category} с ${this.selectedParts[this.selectedParts.length - 1].category}?
-          Нех** заняться? – взял(а) начистил(а) картошки и приготовил(а),
-          соседей угости, там не знаю, кому-нибудь еще что-то сделай,
-          помой полы б**ть, подъезд подмети. Выйди во двор нах**,
-          пособирай мусор б**ть, и покажи пример свой, что
-          я на своей волне б**ть полностью независим(а),
-          как инопланетянин нах** на этой планете,
-          и мне чужды эти люди какие-то, все это для меня
-          такие же организмы как вот трава, растение,
-          насекомые, птицы, другие животные,
-          а все могу сделать сам(а) и мне ничто не нужно. Нить они потеряли блять
-        `
-      );
+      this.messageService.add({severity:'error', summary: 'Ошибка', detail: 'Вы пытаетесь добавить компонент из другой категории'});
       this.selectedParts.pop();
       return;
     }

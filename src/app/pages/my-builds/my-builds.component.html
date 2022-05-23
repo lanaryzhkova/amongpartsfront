@@ -1,6 +1,6 @@
 <section class="container">
 <ng-container *ngIf="this.auth.currentUser; else notAuth">
-  <ng-container *ngIf="this.auth.currentUser && this.builds !== null; else notBuilds">
+  <ng-container *ngIf="this.builds !== null; else notBuilds">
   <p class="header-text">Мои конфигурации</p>
   <div class="cards">
     <div class="card-build">
@@ -19,9 +19,9 @@
     </div>
   </div>
   </ng-container>
-</ng-container>
 
-  <ng-container *ngIf="this.auth.currentUser && this.likedBuilds !== null; else notBuilds">
+
+  <ng-container *ngIf="this.auth.currentUser && this.likedBuilds !== null; else notLikedBuilds">
     <p class="header-text">Сохранённые конфигурации</p>
     <div class="cards">
       <div class="card-build">
@@ -40,6 +40,7 @@
       </div>
     </div>
   </ng-container>
+</ng-container>
 </section>
 
 
@@ -51,4 +52,9 @@
 <ng-template #notBuilds>
   <p class="header-text">Мои конфигурации</p>
   Вы ещё не создавали конфигурации
+</ng-template>
+
+<ng-template #notLikedBuilds>
+  <p class="header-text">Мои конфигурации</p>
+  У вас нет сохраненённых конфигураций
 </ng-template>

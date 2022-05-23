@@ -10,10 +10,13 @@ export class GetBuildService {
   constructor(private http: HttpClient) { }
 
 
-  getBuildAll(skip?: number, limit?: number): Observable<any> {
+  getBuildAll(type?: string, skip?: number, limit?: number): Observable<any> {
     let params: HttpParams = new HttpParams();
     if (limit) {
       params = params.set('limit', limit);
+    }
+    if (type) {
+      params = params.set('build_type', type);
     }
     if (skip) {
       params = params.set('skip', skip);

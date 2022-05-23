@@ -1,181 +1,184 @@
 <section class="container">
+  <div class="part__sticky">
   <div class="header-text">
-    <p>{{currentBuild?.name}}</p>
+    <p class="name">{{currentBuild?.name}}</p>
+    <p class="type">{{currentBuild?.type}}</p>
   </div>
-  <div>
     <div class="build__image">
-<!--      <img src="{{currentBuild?.image}}" alt="{{currentBuild?.name}}">-->
+      <img src="{{currentBuild?.image}}" alt="{{currentBuild?.name}}">
     </div>
   </div>
-  <div>
-    <p class="build__description">{{currentBuild?.description}}</p>
-    <p>{{currentBuild?.specifications.motherboard?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.motherboard?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+  <div class="accordion">
+    <p class="inside">Состав конфигурации:</p>
+    <p-accordion [multiple]="true">
+      <ng-container *ngIf="currentBuild?.specifications.motherboard">
+        <p-accordionTab header="{{currentBuild?.specifications.motherboard?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.motherboard?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.cpu?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.cpu?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.cpu">
+        <p-accordionTab header="{{currentBuild?.specifications.cpu?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.cpu?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.ram?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.ram?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.ram">
+        <p-accordionTab header="{{currentBuild?.specifications.ram?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.ram?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.ssd?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.ssd?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.ssd">
+        <p-accordionTab header="{{currentBuild?.specifications.ssd?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.ssd?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.gpu?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.gpu?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.gpu">
+        <p-accordionTab header="{{currentBuild?.specifications.gpu?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.gpu?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.psu?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.psu?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.psu">
+        <p-accordionTab header="{{currentBuild?.specifications.psu?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.psu?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.case?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.case?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.case">
+        <p-accordionTab header="{{currentBuild?.specifications.case?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.case?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.sound?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.sound?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.sound">
+        <p-accordionTab header="{{currentBuild?.specifications.sound?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.sound?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.cpu_cooling?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.cpu_cooling?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.cpu_cooling">
+        <p-accordionTab header="{{currentBuild?.specifications.cpu_cooling?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.cpu_cooling?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.case_cooling?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.case_cooling?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.case_cooling">
+        <p-accordionTab header="{{currentBuild?.specifications.case_cooling?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.case_cooling?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.enclosure?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.enclosure?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.enclosure">
+        <p-accordionTab header="{{currentBuild?.specifications.enclosure?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.enclosure?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.pci?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.pci?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.pci">
+        <p-accordionTab header="{{currentBuild?.specifications.pci?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.pci?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.optical?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.optical?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.optical">
+        <p-accordionTab header="{{currentBuild?.specifications.optical?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.optical?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
-    <p>{{currentBuild?.specifications.paste?.name}}</p>
-    <div *ngIf="isShow">
-      <ng-container *ngFor="let item of currentBuild?.specifications?.paste?.specifications">
-        <table>
-          <tr>
-            <td>{{item.key}}:</td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
+      <ng-container *ngIf="currentBuild?.specifications.paste">
+        <p-accordionTab header="{{currentBuild?.specifications.paste?.name}}">
+          <ng-container *ngFor="let item of currentBuild?.specifications?.paste?.specifications">
+            <table>
+              <tr>
+                <td>{{item.key}}:</td>
+                <td>{{item.value}}</td>
+              </tr>
+            </table>
+          </ng-container>
+        </p-accordionTab>
       </ng-container>
-    </div>
-    <button type="button" (click)="toggleDiv()"></button>
+    </p-accordion>
   </div>
 </section>

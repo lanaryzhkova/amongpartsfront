@@ -55,7 +55,6 @@ export class CreateBuildComponent implements OnInit {
       "name": this.textName,
       "type": this.textType?.name,
       "description": this.textDesc,
-      "image": this.textCase?.images,
       "specifications": {
         "motherboard": this.textMotherboard?.link_name,
         "cpu": this.textCpu?.link_name,

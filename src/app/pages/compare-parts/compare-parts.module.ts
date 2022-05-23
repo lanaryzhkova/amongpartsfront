@@ -6,6 +6,7 @@ import { AutoCompleteModule }    from "primeng/autocomplete";
 import { FormsModule }           from "@angular/forms";
 import { CardModule }            from "primeng/card";
 import { TableModule }           from "primeng/table";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TableModule }           from "primeng/table";
     AutoCompleteModule,
     FormsModule,
     CardModule,
-    TableModule
+    TableModule,
+    ToastModule
   ]
 })
 export class ComparePartsModule {

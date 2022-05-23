@@ -1,9 +1,10 @@
 .container {
   max-width: 1280px;
-  padding: 0 16px;
+  padding: 0;
   margin: 0 auto;
   justify-content: center;
   display: flex;
+  gap: 32px;
 }
 
 .header-text {
@@ -11,4 +12,39 @@
   font-weight: 550;
   letter-spacing: 0.5px;
   margin: 30px 0 25px 0;
+  display: flex;
+
+    .name{
+      padding: 16px;
+    }
+
+    .type{
+      padding: 16px;
+      border: 1px solid #0288D1;
+      border-radius: 8px;
+      background-color: #cfe8f6;
+    }
+}
+
+.part__sticky{
+  position: sticky;
+  top: auto;
+  margin: 0 auto;
+}
+
+.inside{
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.accordion{
+  margin: 80px auto;
+  padding: 0;
+}
+
+.build__image{
+  img{
+    width: 400px;
+    box-shadow: 0 0 5px rgba(122, 122, 122, 0.5);
+  }
 }
