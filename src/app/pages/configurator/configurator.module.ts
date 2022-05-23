@@ -7,6 +7,10 @@ import { CardModule }            from "primeng/card";
 import { PartCardModule }        from "src/app/components/part-card/part-card.module";
 import { PipesModule }           from "src/app/pipes/pipes.module";
 import { FormsModule }           from "@angular/forms";
+import {BuildCardModule} from "../../components/build-card/build-card.module";
+import {ToastModule} from "primeng/toast";
+import {PaginatorModule} from "primeng/paginator";
+import {TabViewModule} from "primeng/tabview";
 
 @NgModule({
   declarations: [
@@ -15,20 +19,24 @@ import { FormsModule }           from "@angular/forms";
   exports: [
     ConfiguratorComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ConfiguratorComponent,
-      },
-    ]),
-    CheckboxModule,
-    CardModule,
-    PartCardModule,
-    PipesModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: ConfiguratorComponent,
+            },
+        ]),
+        CheckboxModule,
+        CardModule,
+        PartCardModule,
+        PipesModule,
+        FormsModule,
+        BuildCardModule,
+        ToastModule,
+        PaginatorModule,
+        TabViewModule
+    ]
 })
 export class ConfiguratorModule {
 }

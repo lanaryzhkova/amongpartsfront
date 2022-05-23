@@ -2,7 +2,6 @@
   max-width: 1280px;
   padding: 0 16px;
   margin: 0 auto;
-  justify-content: stretch;
 }
 
 .header-text {
@@ -28,9 +27,12 @@
 }
 .card-build{
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.border{
+  border: 1px solid #0288D1;
 }
 
 .card {

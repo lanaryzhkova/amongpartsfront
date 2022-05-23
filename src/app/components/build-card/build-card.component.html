@@ -1,0 +1,29 @@
+<section class="card">
+  <img src="{{img}}" alt="{{name}}">
+  <div class="card__info">
+    <div class="card__header">
+      <p class="card__name">{{name}}</p>
+      <p class="card__type">{{type}}</p>
+    </div>
+    <div class="card__right">
+
+      <p class="card__description">{{description}}</p>
+      <!--      <button type="button">Раскрыть</button>-->
+
+      <div class="card__specifications">
+        <p>Состав:</p>
+        <ng-container *ngFor="let product of specifications">
+          <a>{{product.value}}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <p>Автор конфигурации: {{username}}</p>
+  </div>
+  <div class="button">
+    <p-button  (click)="navigate()" label="Подробнее"></p-button>
+    <p-button (click)="like()" styleClass="p-button-outlined" icon="pi pi-heart"></p-button>
+  </div>
+</section>
+
+

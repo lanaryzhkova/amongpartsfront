@@ -1,6 +1,6 @@
 <ng-container *ngIf="openAuth">
   <div class="form">
-    <ng-container *ngIf="!currentUser && !this.auth.isLoggedIn(); else showProfile">
+    <ng-container *ngIf="!currentUser; else showProfile">
       <form class="form__wrapper" [formGroup]="login" (ngSubmit)="onSubmitSignIn(login.value)">
       <span class="p-float-label">
         <input id="login-input" type="text" pInputText formControlName="username">
@@ -49,7 +49,7 @@
 
 <ng-template #showProfile>
   Привет, {{currentUser.username}}!
-  <p class="hyperlink">Мои сборки</p>
+  <p class="hyperlink" routerLink="/mybuilds">Мои конфигурации</p>
   <p class="hyperlink"  routerLink="/configurator"><i class="pi pi-plus"></i> Добавить конфигурацию</p>
   <p-button label="Выход" [style]="{width: '100%'}" (click)="logOut()"></p-button>
 <!--  <p-button label="Сбросить пароль" [style]="{width: '100%'}" (click)="resetModal=true"></p-button>-->

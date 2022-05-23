@@ -1,0 +1,60 @@
+<section class="container">
+<ng-container *ngIf="this.auth.currentUser; else notAuth">
+  <ng-container *ngIf="this.builds !== null; else notBuilds">
+  <p class="header-text">Мои конфигурации</p>
+  <div class="cards">
+    <div class="card-build">
+      <ng-container *ngFor="let item of builds">
+          <app-my-builds-card
+            [name]="item.name"
+            [type]="item.type"
+            [description]="item.description ? item.description : 'Нет описания'"
+            [image]="validImg(item.image)"
+            [username]="item.username"
+            [specifications]="item.specifications"
+            [link_name]="item.link_name"
+            (routing)="routingPass(item.link_name)">
+          </app-my-builds-card>
+      </ng-container>
+    </div>
+  </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="this.auth.currentUser && this.likedBuilds !== null; else notLikedBuilds">
+    <p class="header-text">Сохранённые конфигурации</p>
+    <div class="cards">
+      <div class="card-build">
+        <ng-container *ngFor="let item of likedBuilds">
+          <app-my-builds-card
+            [name]="item.name"
+            [type]="item.type"
+            [description]="item.description ? item.description : 'Нет описания'"
+            [image]="validImg(item.image)"
+            [username]="item.username"
+            [specifications]="item.specifications"
+            [link_name]="item.link_name"
+            (routing)="routingPass(item.link_name)">
+          </app-my-builds-card>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+</section>
+
+
+<ng-template #notAuth>
+  <p class="header-text">Мои конфигурации</p>
+  Авторизуйтесь, чтобы просматривать эту страницу.
+</ng-template>
+
+<ng-template #notBuilds>
+  <p class="header-text">Мои конфигурации</p>
+  Вы ещё не создавали конфигурации
+</ng-template>
+
+<ng-template #notLikedBuilds>
+  <p class="header-text">Мои конфигурации</p>
+  У вас нет сохраненённых конфигураций
+</ng-template>

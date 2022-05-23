@@ -11,6 +11,7 @@ import { CatalogueModule }  from "./pages/catalogue/catalogue.module";
 import { GuideModule }      from "./pages/guide/guide.module";
 import { AuthModule }       from "./components/auth/auth.module";
 import { CookieService }    from "ngx-cookie-service";
+import {BuildCardModule} from "./components/build-card/build-card.module";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CookieService }    from "ngx-cookie-service";
     CatalogueModule,
     GuideModule,
     AuthModule,
+    BuildCardModule,
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]

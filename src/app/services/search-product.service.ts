@@ -23,7 +23,7 @@ export class SearchProductService {
     return this.http.get('https://amongparts.ga/api/search', {params})
   }
 
-  searchProductCategory(category: string, name: string, limit: number): Observable<any> {
+  searchProductCategory(category: string, name: string, limit: number, skip?: number): Observable<any> {
     let params: HttpParams = new HttpParams();
     if(category){
       params=params.set('category', category)
@@ -33,6 +33,9 @@ export class SearchProductService {
     }
     if (limit) {
       params = params.set('limit', limit);
+    }
+    if (skip) {
+      params = params.set('skip', skip);
     }
 
     return this.http.get('https://amongparts.ga/api/search/'+category, {params})

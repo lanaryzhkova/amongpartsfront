@@ -8,12 +8,12 @@ export class TypeCheckboxPipe implements PipeTransform {
   constructor(private auth: AuthService) {
   }
 
-  transform(value: any, gaming: string[], home: string[], office: string[], design: string[], myConf?: boolean): any {
+  transform(value: any, gaming: string[], home: string[], office: string[], design: string[], video: string[], myConf?: boolean): any {
     if (!value) {
       return false
     }
 
-    if (!gaming[0] && !home[0] && !office[0] && !design[0]) {
+    if (!gaming[0] && !home[0] && !office[0] && !design[0] && !video[0]) {
       if (myConf && this.auth.currentUser.username === value.username) {
         return value;
       }
@@ -23,7 +23,7 @@ export class TypeCheckboxPipe implements PipeTransform {
       }
     }
 
-    if (value.type === gaming[0] || value.type === home[0] || value.type === office[0] || value.type === design[0]) {
+    if (value.type === gaming[0] || value.type === home[0] || value.type === office[0] || value.type === design[0] || value.type === video[0]) {
       if (myConf && this.auth.currentUser.username === value.username) {
         return value;
       }
