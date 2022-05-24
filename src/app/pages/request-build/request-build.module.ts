@@ -6,6 +6,8 @@ import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {InputMaskModule} from "primeng/inputmask";
+import {DropdownModule} from "primeng/dropdown";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {InputMaskModule} from "primeng/inputmask";
     InputTextModule,
     InputTextareaModule,
     InputMaskModule,
+    DropdownModule,
+    ToastModule,
   ]
 })
 export class RequestBuildModule { }
