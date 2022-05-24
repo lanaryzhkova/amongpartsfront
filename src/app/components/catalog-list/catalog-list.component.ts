@@ -1,4 +1,4 @@
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetProductService }      from "src/app/services/get-product.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { SearchProductService }   from "../../services/search-product.service";
@@ -46,11 +46,13 @@ export class CatalogListComponent implements OnInit {
       this.getProducts.getProduct(this.selectedId, this.skip, this.limit, 'rating', direction).subscribe((val) => {
         this.currentProducts = val.data
         this.totalRecords = val.amount
+        this.searchString = '';
       })
     } else {
       this.getProducts.getProduct(this.selectedId, this.skip, this.limit).subscribe((val) => {
         this.currentProducts = val.data
         this.totalRecords = val.amount
+        this.searchString = '';
       })
     }
   }
