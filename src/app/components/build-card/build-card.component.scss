@@ -1,11 +1,16 @@
 .card {
   width: 100%;
-  display: flex;
+  display: grid;
   box-shadow: 0 0 5px rgba(122, 122, 122, 0.5);
   border-radius: 5px;
+  grid-template-columns: 150px 1fr 1.5fr 0.5fr;
+  min-width: 250px;
 
   img {
-    width: 10vw;
+    width: 166px;
+    height: 166px;
+    border-radius: 5px 0 0 5px;
+    padding: 8px;
   }
 
   .card__info {
@@ -40,23 +45,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: left;
+  }
 
-    .card__description {
-      font-size: 16px;
-      padding: 0;
-    }
+  .card__description {
+    font-size: 16px;
+    padding: 0;
+  }
 
-    .card__specifications {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      max-height: 89px;
-
-      p {
-        text-decoration: underline;
-        margin-bottom: 4px;
-      }
-    }
+  .card__specifications {
+    padding: 16px;
+    max-height: 125px;
+    overflow: hidden;
   }
 
   .button {
@@ -64,6 +63,55 @@
     gap: 8px;
     margin: auto 0;
     margin-right: 32px;
+    justify-content: right;
   }
+}
+
+@media (max-width: 1190px) {
+  .card{
+    width: 100%;
+    display: flex;
+
+    .card__specifications{
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+
+  .button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .card__header{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .card{
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    img{
+      padding: 8px;
+      margin: 0 auto;
+    }
+
+    .button{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin: 16px 0;
+      text-align: center;
+    }
+  }
+
 }
 

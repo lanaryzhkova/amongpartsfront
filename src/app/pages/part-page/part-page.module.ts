@@ -4,6 +4,7 @@ import {PartPageComponent} from "./part-page.component";
 import {RouterModule} from "@angular/router";
 import {CarouselModule} from "primeng/carousel";
 import {TableModule} from "primeng/table";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {TableModule} from "primeng/table";
     ]),
     CarouselModule,
     TableModule,
+    AccordionModule,
   ]
 })
 export class PartPageModule { }

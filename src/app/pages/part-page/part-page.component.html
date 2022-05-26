@@ -6,33 +6,30 @@
       <div class="carousel">
         <p-carousel [value]="currentProduct?.images">
           <ng-template let-item pTemplate="item">
-            <img [src]="item" alt="{{currentProduct?.name}}" width="450px">
+            <img [src]="item" alt="{{currentProduct?.name}}" width="350px">
           </ng-template>
         </p-carousel>
       </div>
-    <div class="product__desc__table">
-      <div>
-      <h3 style="color: #495057; margin-bottom: 8px; margin-left: 14px">Описание:</h3>
-      <p class="product__desc">
-      {{currentProduct?.description}}</p>
-      </div>
-      <div class="table__wrapper">
-        <p-table [value]="currentProduct?.specifications" [scrollable]="true" responsiveLayout="scroll" class="table">
-          <ng-template pTemplate="header">
-            <tr>
-              <th>Характеристики</th>
-              <th></th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-product>
-            <tr>
-              <td>{{product.key}}</td>
-              <td>{{product.value}}</td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div>
+    <p-accordion [multiple]="true">
+      <p-accordionTab header="Описание" [selected]="true">
+        <p class="product__desc">
+          {{currentProduct?.description}}</p>
+      </p-accordionTab>
+      <p-accordionTab header="Характеристики">
+        <ng-template pTemplate="content">
+          <div class="table__wrapper">
+            <p-table [value]="currentProduct?.specifications" [scrollable]="true" responsiveLayout="scroll" class="table">
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{product.key}}</td>
+                  <td>{{product.value}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </ng-template>
+      </p-accordionTab>
+    </p-accordion>
     </div>
-  </div>
 </ng-container>
 </section>
