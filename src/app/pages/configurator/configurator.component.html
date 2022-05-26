@@ -2,32 +2,8 @@
   <p class="header-text">Подбор компьютера</p>
   <p routerLink="/createbuild" class="hyperlink">Собрать конфигурацию самостоятельно</p>
   <ng-container>
-<!--    <div class="checkboxes">-->
-<!--      <div class="field-checkbox">-->
-<!--        <p-checkbox name="group1" value="Игровой" id="val1" [(ngModel)]="gaming" ></p-checkbox>-->
-<!--        <label for="val1">Игровой</label>-->
-<!--      </div>-->
-<!--      <div class="field-checkbox">-->
-<!--        <p-checkbox name="group1" value="Для дома" id="val2" [(ngModel)]="home"></p-checkbox>-->
-<!--        <label for="val2">Для дома</label>-->
-<!--      </div>-->
-<!--      <div class="field-checkbox">-->
-<!--        <p-checkbox name="group1" value="Для офиса" id="val3" [(ngModel)]="office"></p-checkbox>-->
-<!--        <label for="val3">Для офиса</label>-->
-<!--      </div>-->
-<!--      <div class="field-checkbox">-->
-<!--        <p-checkbox name="group1" value="Для дизайна" id="val4" [(ngModel)]="design"></p-checkbox>-->
-<!--        <label for="val4">Для дизайна</label>-->
-<!--      </div>-->
-<!--      <div class="field-checkbox">-->
-<!--        <p-checkbox name="group1" value="Для дизайна" id="val5" [(ngModel)]="video"></p-checkbox>-->
-<!--        <label for="val5">Для видеомонтажа</label>-->
-<!--      </div>-->
-<!--    </div>-->
-
     <p-tabView (onChange)="changeTab($event)">
       <p-tabPanel header="Все">
-        <div class="cards">
           <div class="card-build">
             <ng-container *ngFor="let item of allBuild">
               <ng-container *ngIf="item">
@@ -45,7 +21,6 @@
               </ng-container>
             </ng-container>
           </div>
-        </div>
       </p-tabPanel>
       <p-tabPanel header="Игровой">
         <div class="cards">

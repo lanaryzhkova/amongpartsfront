@@ -1,10 +1,9 @@
 .container {
   max-width: 1280px;
-  padding: 0;
+  padding: 0 16px;
   margin: 0 auto;
-  justify-content: center;
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .header-text {
@@ -13,23 +12,12 @@
   letter-spacing: 0.5px;
   margin: 30px 0 25px 0;
   display: flex;
-
-    .name{
-      padding: 16px;
-    }
-
-    .type{
-      padding: 16px;
-      border: 1px solid #0288D1;
-      border-radius: 8px;
-      background-color: #cfe8f6;
-    }
+  width: 100%;
 }
 
-.part__sticky{
-  position: sticky;
-  top: auto;
-  margin: 0 auto;
+.description{
+  font-size: 20px;
+  margin: 0 0 16px 0;
 }
 
 .inside{
@@ -38,13 +26,48 @@
 }
 
 .accordion{
-  margin: 80px auto;
   padding: 0;
 }
 
+.info{
+  display: flex;
+  gap: 32px;
+}
+
 .build__image{
+  width: fit-content;
   img{
     width: 400px;
     box-shadow: 0 0 5px rgba(122, 122, 122, 0.5);
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-text{
+    justify-content: center;
+  }
+
+  .build__image{
+    margin: 0 auto;
+  }
+
+  .info{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 424px) {
+  .build__image{
+    img{
+      width: 100%;
+    }
+  }
+}
+

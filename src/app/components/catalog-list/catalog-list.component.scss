@@ -75,7 +75,6 @@
   margin-bottom: 16px;
     .sort{
       display: flex;
-      margin: auto 0;
       gap: 8px;
       p{
         margin: auto 0;
@@ -83,3 +82,26 @@
     }
 }
 
+
+@media (max-width: 768px) {
+
+  .sort{
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .catalog__top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+}
+
+@media (max-width: 1000px) {
+  .catalog__top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
