@@ -15,7 +15,6 @@ export class CreateBuildComponent implements OnInit {
   text: any;
   limit: number = 25;
   textMotherboard: any;
-  mapi = new Map();
   getObject: any;
   textCpu: any;
   textPsu: any;
@@ -75,7 +74,7 @@ export class CreateBuildComponent implements OnInit {
     }
     this.sendBuild.sendBuild(this.getObject).subscribe({
       error: err => this.messageService.add({severity:'error', summary: 'Ошибка', detail: `${err.status}: ${err.statusText}`}),
-      complete: () => this.messageService.add({severity:'success', summary: 'Успех', detail: 'Сборка собрана'})
+      complete: () => this.messageService.add({severity:'success', summary: 'Успех', detail: 'Сборка добавлена'})
     });
   }
 

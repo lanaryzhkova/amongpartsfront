@@ -1,15 +1,16 @@
 <section class="container">
-  <div class="part__sticky">
   <div class="header-text">
-    <p class="name">{{currentBuild?.name}}</p>
-    <p class="type">{{currentBuild?.type}}</p>
+    <p class="name">Конфигурация 	&laquo;{{currentBuild?.name}}&raquo;</p>
   </div>
+  <div class="p-card-subtitle">
+  <p class="description">Тип: {{currentBuild?.type}}. {{currentBuild?.description}}</p>
+  <p class="description">Автор: {{currentBuild?.username}}</p>
+  </div>
+  <div class="info">
     <div class="build__image">
       <img src="{{currentBuild?.image}}" alt="{{currentBuild?.name}}">
     </div>
-  </div>
   <div class="accordion">
-    <p class="inside">Состав конфигурации:</p>
     <p-accordion [multiple]="true">
       <ng-container *ngIf="currentBuild?.specifications.motherboard">
         <p-accordionTab header="{{currentBuild?.specifications.motherboard?.name}}">
@@ -180,5 +181,6 @@
         </p-accordionTab>
       </ng-container>
     </p-accordion>
+  </div>
   </div>
 </section>

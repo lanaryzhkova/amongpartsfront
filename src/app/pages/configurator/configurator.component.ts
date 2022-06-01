@@ -72,7 +72,7 @@ export class ConfiguratorComponent implements OnInit {
   like(link: any) {
     this.getBuildService.likeBuild(link).subscribe(
       {
-        next: res => {
+        next: () => {
           this.messageService.add({
             severity: 'success',
             summary: 'Уведомление',
@@ -107,6 +107,7 @@ export class ConfiguratorComponent implements OnInit {
         this.typeBuild = 'Для видеомонтажа'
         break;
     }
+    this.skip =0;
     this.getBuildService.getBuildAll(this.typeBuild, this.skip, this.limit).subscribe(
       {
         next: value => {
