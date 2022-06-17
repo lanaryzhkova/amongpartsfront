@@ -6,7 +6,7 @@
       </span>
     <div class="sort">
       <p>Сортировать по рейтингу:</p>
-      <p-selectButton [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"
+      <p-selectButton [options]="stateOptions" optionLabel="label" optionValue="value"
                       (onChange)="check($event)"></p-selectButton>
     </div>
   </div>
@@ -48,9 +48,8 @@
   <p-paginator [first]="first" [rows]="12" [totalRecords]="this.totalResults"
                (onPageChange)="paginateSearch($event)"></p-paginator>
 </ng-template>
-
 <ng-template #notFound>
-  <p>Товара из выбранной категории нет.</p>
+  <p>Компонентов из выбранной категории нет.</p>
 </ng-template>
 
 <ng-container *ngIf="product">
