@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { SelectItemGroup }        from "primeng/api";
 import { Router } from "@angular/router";
 
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 
 export class CatalogueComponent implements OnInit {
   groupedCategories!: SelectItemGroup[];
+  @Input() sortValue: any;
 
   constructor(private router: Router) {
   }
@@ -50,6 +51,6 @@ export class CatalogueComponent implements OnInit {
   }
 
   linkProduct(product: any) {
-    this.router.navigate([`parts/${product.value}`])
+    this.router.navigate([`parts/${product.value}`]);
   }
 }

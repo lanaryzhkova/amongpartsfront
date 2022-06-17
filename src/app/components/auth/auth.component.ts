@@ -13,7 +13,7 @@ import { MessageService }                     from "primeng/api";
 export class AuthComponent implements OnInit {
   @Input() openAuth = false;
   currentUser?: any = this.auth.currentUser;
-  resetModal: boolean = false;
+
   regModal: boolean = false;
   registration = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -41,7 +41,7 @@ export class AuthComponent implements OnInit {
   onSubmitRegister(value: any) {
     this.auth.registry(value).subscribe(
       {
-        next: (e) => {
+        next: () => {
           this.messageService.add({severity:'success', summary: 'Уведомление', detail: 'Пользователь успешно зарегистрирован!'});
         }
       }
@@ -76,9 +76,4 @@ export class AuthComponent implements OnInit {
     })
   }
 
-  // reset(value: any) {
-  //   this.auth.resetPassword(value).subscribe(value => {
-  //     console.log(value)
-  //   })
-  // }
 }

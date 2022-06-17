@@ -15,7 +15,7 @@ export class RequestBuildComponent implements OnInit {
   email?: string;
   phone?: string;
   type?: any;
-  description?: string;
+  description!: string;
   price?: number;
 
   constructor(private messageService: MessageService, private requestBuild: RequestBuildService) {

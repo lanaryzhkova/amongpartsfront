@@ -89,10 +89,10 @@ export class ConfiguratorComponent implements OnInit {
   changeTab(evt: any) {
     switch (evt.index) {
       case (0):
-       this.typeBuild = '';
+        this.typeBuild = '';
         break;
       case (1):
-       this.typeBuild = 'Игровой'
+        this.typeBuild = 'Игровой'
         break;
       case (2):
         this.typeBuild = 'Для дома'
@@ -107,7 +107,7 @@ export class ConfiguratorComponent implements OnInit {
         this.typeBuild = 'Для видеомонтажа'
         break;
     }
-    this.skip =0;
+    this.skip = 0;
     this.getBuildService.getBuildAll(this.typeBuild, this.skip, this.limit).subscribe(
       {
         next: value => {

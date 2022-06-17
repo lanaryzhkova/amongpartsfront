@@ -15,20 +15,6 @@ export class BuildPageComponent implements OnInit {
   category?: string;
   currentBuild: any;
   private subscription?: Subscription;
-  isShow = true;
-  // isShowMotherboard = false;
-  // isShowCpu = false;
-  // isShowRam = false;
-  // isShowSsd = false;
-  // isShowHdd = false;
-  // isShowPsu = false;
-  // isShowSound= false;
-  // isShowCpuCooling= false;
-  // isShowCaseCooling= false;
-  // isShowEnclosure= false;
-  // isShowPci= false;
-  // isShowOptical= false;
-  // isShowPaste= false;
 
   constructor(private activatedRoute: ActivatedRoute, private getBuild: GetBuildService) { }
 
@@ -41,10 +27,6 @@ export class BuildPageComponent implements OnInit {
     ).subscribe((val) => {
       this.currentBuild = val;
     });
-  }
-
-  toggleDiv(){
-    this.isShow = !this.isShow;
   }
 
 }

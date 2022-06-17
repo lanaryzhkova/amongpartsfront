@@ -3,9 +3,13 @@
   display: flex;
   box-shadow: 0 0 5px rgba(122, 122, 122, 0.5);
   border-radius: 5px;
+  padding: 4px;
 
   img {
-    width: 10vw;
+    width: 166px;
+    height: 166px;
+    border-radius: 5px 0 0 5px;
+    margin: auto 0;
   }
 
   .card__info {
@@ -58,3 +62,53 @@
     margin-right: 32px;
   }
 }
+
+@media (max-width: 1190px) {
+  .card{
+    width: 100%;
+    display: flex;
+
+    .card__specifications{
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+
+  .button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .card__header{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .card{
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    img{
+      padding: 8px;
+      margin: 0 auto;
+    }
+
+    .button{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin: 16px 0;
+      text-align: center;
+    }
+  }
+
+}
+
+
