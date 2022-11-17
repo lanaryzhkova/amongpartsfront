@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { GetProductService }      from "src/app/services/get-product.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { SearchProductService }   from "../../services/search-product.service";
@@ -22,7 +22,6 @@ export class CatalogListComponent implements OnInit {
   text?: string;
   searchString!: string;
   totalResults: any = 0;
-  value1?: string = 'up';
   stateOptions: any[] = [{label: "По возрастанию", value: 1}, {label: "По убыванию", value: -1}];
 
   constructor(private getProducts: GetProductService, private route: ActivatedRoute, private router: Router, private searchProduct: SearchProductService) {
@@ -73,14 +72,6 @@ export class CatalogListComponent implements OnInit {
     this.first = 0;
   }
 
-  openDialog(evt: string) {
-    this.displayModal = true
-
-    this.product = this.currentProducts.filter((obj: any) => {
-      return obj.name === evt
-    })
-  }
-
   searchByCategory() {
     if (this.searchString.length > 0) {
       this.searchProduct.searchProductCategory(this.selectedId !, this.searchString, this.limit, this.skip).subscribe((val) => {
@@ -93,6 +84,6 @@ export class CatalogListComponent implements OnInit {
 
   check(event: any) {
     this.searchString = '';
-    this.getProduct(event.value)
+    this.getProduct(event.value);
   }
 }

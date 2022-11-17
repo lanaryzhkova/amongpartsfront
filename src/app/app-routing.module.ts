@@ -5,13 +5,6 @@ import { CatalogListComponent } from "src/app/components/catalog-list/catalog-li
 
 const routes: Routes = [
   {
-    path: 'login',
-    loadChildren: () =>
-      import('./components/auth/auth.module').then(
-        (m) => m.AuthModule,
-      ),
-  },
-  {
     path: '',
     loadChildren: () =>
       import('./pages/home/home.module').then(

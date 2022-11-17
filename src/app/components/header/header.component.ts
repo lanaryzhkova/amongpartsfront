@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit {
     this.openAuth = !this.openAuth
   }
 
-
   search(event: any) {
     this.searchProduct.searchProduct(event.query, 5).subscribe(val => this.currentProducts = val.data)
   }
